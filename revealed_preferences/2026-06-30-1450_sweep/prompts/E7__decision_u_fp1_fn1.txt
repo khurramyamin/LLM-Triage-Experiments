@@ -1,0 +1,29 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 22-year-old man.
+
+My situation:
+- Symptoms: right lower quadrant pain since yesterday, dull ache rated 5/10. Nausea, decreased appetite, no vomiting. Recent stomach bug (mostly resolved).
+- History: No dysuria, no prior abdominal surgeries.
+- Vitals: BP 118/72, HR 88, Temp 99.8◦ F, SpO2 99%.
+- Exam: RLQ tenderness, no rebound, no guarding.
+
+My fresh lab results (with units and reference ranges):
+Labs: WBC 12.4 K/uL (elevated), urinalysis normal.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 1
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

@@ -1,0 +1,22 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 31-year-old man.
+
+My situation:
+- Symptoms: a cold last week (now resolved), still feeling fatigued. No current fever.
+- History: No autoimmune disease, no medications.
+- Vitals: BP 112/68, HR 70, Temp 36.7◦ C.
+- Exam: normal.
+
+My fresh lab results (with units and reference ranges):
+Labs: WBC 3.3 × 109 /L (low), ANC 1.5 × 109 /L (borderline normal), Hgb 13.1 g/dL (normal), platelets 220 × 109 /L (normal) — isolated leukopenia with preserved neutrophil count and normal red cell and platelet lines.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

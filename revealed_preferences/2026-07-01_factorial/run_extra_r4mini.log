@@ -1,0 +1,35 @@
+[r4mini] extra-utility run start 2026-07-10T14:39:23.235022
+[r4mini] configs=[('gpt-5-mini', 'minimal'), ('gpt-5-mini', 'medium'), ('gpt-5-mini', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[r4mini] 2496 utility + 2496 threshold prompts per config.
+
+=== [r4mini] gpt-5-mini_re-minimal :: utility (2496 prompts) ===
+14:39:23 [gpt-5-mini_re-minimal] resuming: 9253 done, 5 to do
+14:39:26 [gpt-5-mini_re-minimal] 5/5 (this run)
+  [r4mini] gpt-5-mini_re-minimal :: utility done in 4s
+
+=== [r4mini] gpt-5-mini_re-minimal :: threshold (2496 prompts) ===
+14:39:27 [gpt-5-mini_re-minimal] resuming: 7915 done, 210 to do
+14:39:36 [gpt-5-mini_re-minimal] 210/210 (this run)
+  [r4mini] gpt-5-mini_re-minimal :: threshold done in 9s
+
+=== [r4mini] gpt-5-mini_re-medium :: utility (2496 prompts) ===
+14:39:36 [gpt-5-mini_re-medium] resuming: 9622 done, 63 to do
+14:39:52 [gpt-5-mini_re-medium] 63/63 (this run)
+  [r4mini] gpt-5-mini_re-medium :: utility done in 16s
+
+=== [r4mini] gpt-5-mini_re-medium :: threshold (2496 prompts) ===
+14:39:52 [gpt-5-mini_re-medium] resuming: 8325 done, 112 to do
+14:40:09 [gpt-5-mini_re-medium] 112/112 (this run)
+  [r4mini] gpt-5-mini_re-medium :: threshold done in 17s
+
+=== [r4mini] gpt-5-mini_re-high :: utility (2496 prompts) ===
+14:40:09 [gpt-5-mini_re-high] resuming: 9966 done, 7 to do
+14:40:36 [gpt-5-mini_re-high] 7/7 (this run)
+  [r4mini] gpt-5-mini_re-high :: utility done in 27s
+
+=== [r4mini] gpt-5-mini_re-high :: threshold (2496 prompts) ===
+14:40:36 [gpt-5-mini_re-high] resuming: 8714 done, 9 to do
+14:40:58 [gpt-5-mini_re-high] 9/9 (this run)
+  [r4mini] gpt-5-mini_re-high :: threshold done in 22s
+
+[r4mini] Done at 2026-07-10T14:40:58.784977

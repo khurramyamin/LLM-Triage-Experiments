@@ -1,0 +1,17 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 36-year-old man.
+
+My situation:
+- Symptoms: 12 hours of progressive wheezing and chest tightness. Rescue inhaler used 4 times with transient relief only. Can speak in full sentences, no fever, mild dry cough.
+- History: Known asthma, no recent ER visits.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

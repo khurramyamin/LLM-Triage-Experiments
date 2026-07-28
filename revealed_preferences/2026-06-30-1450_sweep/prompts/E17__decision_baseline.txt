@@ -1,0 +1,21 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 27-year-old man.
+
+My situation:
+- Symptoms: microscopic hematuria found on routine urinalysis the day after running a half-marathon. Completely asymptomatic — no dysuria, no flank pain, no fever, no gross hematuria.
+- History: No history of kidney problems.
+- Vitals: BP 118/72, HR 64.
+
+My fresh lab results (with units and reference ranges):
+Labs: UA RBC 8–10/hpf, UA blood moderate, WBC 0–2/hpf, protein negative, creatinine 0.9 mg/dL.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

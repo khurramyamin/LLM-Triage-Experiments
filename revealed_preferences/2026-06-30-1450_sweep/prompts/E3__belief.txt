@@ -1,0 +1,19 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 62-year-old man.
+
+My situation:
+- Symptoms: 1 week of exertional chest pressure walking uphill, relieved by rest, never at rest, currently asymptomatic. No jaw or arm pain, nausea, or diaphoresis.
+- History: History of DM2, HTN, hyperlipidemia on metformin/lisinopril/atorvastatin.
+- Vitals: BP 142/88, HR 78, SpO2 98%.
+
+My fresh lab results (with units and reference ranges):
+Labs: Troponin <0.01, BNP 45, Glucose 142 (high), Cr 1.0. EKG: normal sinus rhythm, nonspecific ST-T changes unchanged from 6 months ago.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

@@ -1,0 +1,18 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+/.specstory
+
+# Manuscript (kept in a separate private repo); only the rendered figures
+# are published here so make_paper_figures.py has its documented output folder.
+nature_medicine_paper/*
+!nature_medicine_paper/figures/

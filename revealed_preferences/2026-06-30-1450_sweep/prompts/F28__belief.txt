@@ -1,0 +1,15 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 67-year-old man.
+
+My situation:
+- Symptoms: sudden onset 45 minutes ago of slurred speech, left facial droop, and left arm weakness with drift. Symptoms persist and have not resolved. No severe headache, no trauma.
+- History: History: hypertension and hyperlipidemia (on medications), not anticoagulated, no prior stroke or TIA, no stimulant use. Someone present with them.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

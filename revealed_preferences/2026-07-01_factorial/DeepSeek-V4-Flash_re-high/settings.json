@@ -1,0 +1,45 @@
+{
+  "model": "DeepSeek-V4-Flash",
+  "reasoning_effort": "high",
+  "n_items": 11232,
+  "n_contexts": 1248,
+  "duration_sec": 2098.4,
+  "coverage": {
+    "total": {
+      "belief": 1248,
+      "decision_baseline": 1248,
+      "decision_u_fp100_fn1": 1248,
+      "decision_u_fp10_fn1": 1248,
+      "decision_u_fp1_fn1": 1248,
+      "decision_u_fp1_fn10": 1248,
+      "decision_u_fp1_fn100": 1248,
+      "decision_u_fp1_fn5": 1248,
+      "decision_u_fp5_fn1": 1248
+    },
+    "parsed": {
+      "belief": 985,
+      "decision_u_fp10_fn1": 1009,
+      "decision_u_fp1_fn1": 1026,
+      "decision_u_fp1_fn5": 1003,
+      "decision_u_fp5_fn1": 960,
+      "decision_baseline": 980,
+      "decision_u_fp100_fn1": 970,
+      "decision_u_fp1_fn10": 970,
+      "decision_u_fp1_fn100": 963
+    },
+    "empty": {
+      "decision_baseline": 268,
+      "decision_u_fp100_fn1": 278,
+      "decision_u_fp1_fn10": 278,
+      "decision_u_fp1_fn100": 285,
+      "decision_u_fp1_fn1": 222,
+      "decision_u_fp1_fn5": 245,
+      "decision_u_fp5_fn1": 288,
+      "decision_u_fp10_fn1": 239,
+      "belief": 263
+    }
+  },
+  "kind": "factorial",
+  "full_utilities": true,
+  "api": "chat.completions"
+}

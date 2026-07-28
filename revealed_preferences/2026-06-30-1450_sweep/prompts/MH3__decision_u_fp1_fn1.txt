@@ -1,0 +1,29 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 22-year-old man.
+
+My situation:
+- Symptoms: 2 months of paranoid ideation ("people are watching me, talking about me"), disorganized thoughts ("jumbled," difficulty explaining himself), and auditory perceptual disturbance (hears his name called when no one is present — not command hallucinations). Declining sleep and appetite.
+- History: Family brought him in due to concern. No suicidal or homicidal ideation, not intoxicated, denies drug use. No known medical problems.
+- Vitals: BP 122/70, HR 84, Temp 98.6◦ F.
+- Exam: oriented ×3, tangential speech, paranoid affect.
+
+My fresh lab results (with units and reference ranges):
+Labs: urine toxicology negative, TSH 1.7 (normal), CBC, BMP, calcium, glucose — all normal.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 1
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

@@ -1,0 +1,15 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 48-year-old man.
+
+My situation:
+- Symptoms: 2 days of nausea, mild headache, and lightheadedness. Fully alert, ambulatory, no confusion, no seizures.
+- History: Started hydrochlorothiazide 2 weeks ago for hypertension.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

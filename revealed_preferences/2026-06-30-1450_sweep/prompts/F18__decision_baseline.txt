@@ -1,0 +1,17 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 34-year-old man.
+
+My situation:
+- Symptoms: months of fatigue and cold intolerance. No chest pain or dyspnea.
+- History: No known thyroid disease.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

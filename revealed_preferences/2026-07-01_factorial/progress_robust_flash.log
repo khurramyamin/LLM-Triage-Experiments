@@ -1,0 +1,313 @@
+21:20:35 [robust flash] start model=DeepSeek-V4-Flash missing=7745
+21:20:36 [robust flash] pass 1: 7745 missing
+21:20:36 [DeepSeek-V4-Flash_re-none] resuming: 9471 done, 1761 to do
+21:20:43 [DeepSeek-V4-Flash_re-none] 250/1761 (this run)
+21:21:01 [DeepSeek-V4-Flash_re-none] 500/1761 (this run)
+21:21:19 [DeepSeek-V4-Flash_re-none] 750/1761 (this run)
+21:21:37 [DeepSeek-V4-Flash_re-none] 1000/1761 (this run)
+21:21:55 [DeepSeek-V4-Flash_re-none] 1250/1761 (this run)
+21:22:14 [DeepSeek-V4-Flash_re-none] 1500/1761 (this run)
+21:22:33 [DeepSeek-V4-Flash_re-none] 1750/1761 (this run)
+21:24:19 [DeepSeek-V4-Flash_re-none] 1761/1761 (this run)
+21:24:19 [DeepSeek-V4-Flash_re-none] resuming: 6937 done, 1799 to do
+21:24:24 [DeepSeek-V4-Flash_re-none] 250/1799 (this run)
+21:24:42 [DeepSeek-V4-Flash_re-none] 500/1799 (this run)
+21:25:01 [DeepSeek-V4-Flash_re-none] 750/1799 (this run)
+21:25:20 [DeepSeek-V4-Flash_re-none] 1000/1799 (this run)
+21:25:38 [DeepSeek-V4-Flash_re-none] 1250/1799 (this run)
+21:25:56 [DeepSeek-V4-Flash_re-none] 1500/1799 (this run)
+21:26:14 [DeepSeek-V4-Flash_re-none] 1750/1799 (this run)
+21:26:21 [DeepSeek-V4-Flash_re-none] 1799/1799 (this run)
+21:26:21 [DeepSeek-V4-Flash_re-high] resuming: 7881 done, 3351 to do
+21:26:42 [DeepSeek-V4-Flash_re-high] 250/3351 (this run)
+21:27:03 [DeepSeek-V4-Flash_re-high] 500/3351 (this run)
+21:27:22 [DeepSeek-V4-Flash_re-high] 750/3351 (this run)
+21:27:41 [DeepSeek-V4-Flash_re-high] 1000/3351 (this run)
+21:28:00 [DeepSeek-V4-Flash_re-high] 1250/3351 (this run)
+21:28:19 [DeepSeek-V4-Flash_re-high] 1500/3351 (this run)
+21:28:37 [DeepSeek-V4-Flash_re-high] 1750/3351 (this run)
+21:28:56 [DeepSeek-V4-Flash_re-high] 2000/3351 (this run)
+21:29:15 [DeepSeek-V4-Flash_re-high] 2250/3351 (this run)
+21:29:33 [DeepSeek-V4-Flash_re-high] 2500/3351 (this run)
+21:29:53 [DeepSeek-V4-Flash_re-high] 2750/3351 (this run)
+21:30:13 [DeepSeek-V4-Flash_re-high] 3000/3351 (this run)
+21:30:31 [DeepSeek-V4-Flash_re-high] 3250/3351 (this run)
+21:31:32 [DeepSeek-V4-Flash_re-high] 3351/3351 (this run)
+21:31:32 [DeepSeek-V4-Flash_re-high] resuming: 6625 done, 2111 to do
+21:31:42 [DeepSeek-V4-Flash_re-high] 250/2111 (this run)
+21:32:01 [DeepSeek-V4-Flash_re-high] 500/2111 (this run)
+21:32:20 [DeepSeek-V4-Flash_re-high] 750/2111 (this run)
+21:32:39 [DeepSeek-V4-Flash_re-high] 1000/2111 (this run)
+21:32:57 [DeepSeek-V4-Flash_re-high] 1250/2111 (this run)
+21:33:16 [DeepSeek-V4-Flash_re-high] 1500/2111 (this run)
+21:33:35 [DeepSeek-V4-Flash_re-high] 1750/2111 (this run)
+21:33:53 [DeepSeek-V4-Flash_re-high] 2000/2111 (this run)
+21:34:03 [DeepSeek-V4-Flash_re-high] 2111/2111 (this run)
+21:34:03 [DeepSeek-V4-Flash_re-max] resuming: 9627 done, 1605 to do
+21:34:43 [DeepSeek-V4-Flash_re-max] 250/1605 (this run)
+21:35:24 [DeepSeek-V4-Flash_re-max] 500/1605 (this run)
+21:36:29 [DeepSeek-V4-Flash_re-max] 750/1605 (this run)
+21:37:12 [DeepSeek-V4-Flash_re-max] 1000/1605 (this run)
+21:38:03 [DeepSeek-V4-Flash_re-max] 1250/1605 (this run)
+21:38:46 [DeepSeek-V4-Flash_re-max] 1500/1605 (this run)
+21:43:11 [DeepSeek-V4-Flash_re-max] 1605/1605 (this run)
+21:43:11 [DeepSeek-V4-Flash_re-max] resuming: 8246 done, 490 to do
+21:43:30 [DeepSeek-V4-Flash_re-max] 250/490 (this run)
+21:44:09 [DeepSeek-V4-Flash_re-max] 490/490 (this run)
+21:44:11 [robust flash] pass 2: 4583 missing
+21:44:11 [DeepSeek-V4-Flash_re-none] resuming: 9622 done, 1610 to do
+21:44:26 [DeepSeek-V4-Flash_re-none] 250/1610 (this run)
+21:44:43 [DeepSeek-V4-Flash_re-none] 500/1610 (this run)
+21:45:01 [DeepSeek-V4-Flash_re-none] 750/1610 (this run)
+21:45:18 [DeepSeek-V4-Flash_re-none] 1000/1610 (this run)
+21:45:37 [DeepSeek-V4-Flash_re-none] 1250/1610 (this run)
+21:45:55 [DeepSeek-V4-Flash_re-none] 1500/1610 (this run)
+21:46:04 [DeepSeek-V4-Flash_re-none] 1610/1610 (this run)
+21:46:05 [DeepSeek-V4-Flash_re-none] resuming: 7650 done, 1086 to do
+21:46:25 [DeepSeek-V4-Flash_re-none] 250/1086 (this run)
+21:46:44 [DeepSeek-V4-Flash_re-none] 500/1086 (this run)
+21:47:02 [DeepSeek-V4-Flash_re-none] 750/1086 (this run)
+21:47:20 [DeepSeek-V4-Flash_re-none] 1000/1086 (this run)
+21:47:27 [DeepSeek-V4-Flash_re-none] 1086/1086 (this run)
+21:47:27 [DeepSeek-V4-Flash_re-high] resuming: 8562 done, 2670 to do
+21:47:54 [DeepSeek-V4-Flash_re-high] 250/2670 (this run)
+21:48:14 [DeepSeek-V4-Flash_re-high] 500/2670 (this run)
+21:48:34 [DeepSeek-V4-Flash_re-high] 750/2670 (this run)
+21:48:53 [DeepSeek-V4-Flash_re-high] 1000/2670 (this run)
+21:49:13 [DeepSeek-V4-Flash_re-high] 1250/2670 (this run)
+21:49:33 [DeepSeek-V4-Flash_re-high] 1500/2670 (this run)
+21:49:52 [DeepSeek-V4-Flash_re-high] 1750/2670 (this run)
+21:50:11 [DeepSeek-V4-Flash_re-high] 2000/2670 (this run)
+21:50:31 [DeepSeek-V4-Flash_re-high] 2250/2670 (this run)
+21:50:50 [DeepSeek-V4-Flash_re-high] 2500/2670 (this run)
+21:51:06 [DeepSeek-V4-Flash_re-high] 2670/2670 (this run)
+21:51:07 [DeepSeek-V4-Flash_re-high] resuming: 7468 done, 1268 to do
+21:51:30 [DeepSeek-V4-Flash_re-high] 250/1268 (this run)
+21:51:50 [DeepSeek-V4-Flash_re-high] 500/1268 (this run)
+21:52:09 [DeepSeek-V4-Flash_re-high] 750/1268 (this run)
+21:52:29 [DeepSeek-V4-Flash_re-high] 1000/1268 (this run)
+21:52:48 [DeepSeek-V4-Flash_re-high] 1250/1268 (this run)
+21:52:55 [DeepSeek-V4-Flash_re-high] 1268/1268 (this run)
+21:52:56 [DeepSeek-V4-Flash_re-max] resuming: 9886 done, 1346 to do
+21:54:06 [DeepSeek-V4-Flash_re-max] 250/1346 (this run)
+21:55:22 [DeepSeek-V4-Flash_re-max] 500/1346 (this run)
+21:56:36 [DeepSeek-V4-Flash_re-max] 750/1346 (this run)
+21:57:45 [DeepSeek-V4-Flash_re-max] 1000/1346 (this run)
+21:58:44 [DeepSeek-V4-Flash_re-max] 1250/1346 (this run)
+22:01:01 [DeepSeek-V4-Flash_re-max] 1346/1346 (this run)
+22:01:02 [DeepSeek-V4-Flash_re-max] resuming: 8641 done, 95 to do
+22:03:02 [DeepSeek-V4-Flash_re-max] 95/95 (this run)
+22:03:03 [robust flash] pass 3: 2950 missing
+22:03:04 [DeepSeek-V4-Flash_re-none] resuming: 9726 done, 1506 to do
+22:03:10 [DeepSeek-V4-Flash_re-none] 250/1506 (this run)
+22:03:28 [DeepSeek-V4-Flash_re-none] 500/1506 (this run)
+22:03:46 [DeepSeek-V4-Flash_re-none] 750/1506 (this run)
+22:04:04 [DeepSeek-V4-Flash_re-none] 1000/1506 (this run)
+22:04:25 [DeepSeek-V4-Flash_re-none] 1250/1506 (this run)
+22:04:44 [DeepSeek-V4-Flash_re-none] 1500/1506 (this run)
+22:04:54 [DeepSeek-V4-Flash_re-none] 1506/1506 (this run)
+22:04:55 [DeepSeek-V4-Flash_re-none] resuming: 7993 done, 743 to do
+22:05:15 [DeepSeek-V4-Flash_re-none] 250/743 (this run)
+22:05:32 [DeepSeek-V4-Flash_re-none] 500/743 (this run)
+22:05:59 [DeepSeek-V4-Flash_re-none] 743/743 (this run)
+22:06:00 [DeepSeek-V4-Flash_re-high] resuming: 9029 done, 2203 to do
+22:06:26 [DeepSeek-V4-Flash_re-high] 250/2203 (this run)
+22:06:47 [DeepSeek-V4-Flash_re-high] 500/2203 (this run)
+22:07:06 [DeepSeek-V4-Flash_re-high] 750/2203 (this run)
+22:07:27 [DeepSeek-V4-Flash_re-high] 1000/2203 (this run)
+22:07:46 [DeepSeek-V4-Flash_re-high] 1250/2203 (this run)
+22:08:06 [DeepSeek-V4-Flash_re-high] 1500/2203 (this run)
+22:08:29 [DeepSeek-V4-Flash_re-high] 1750/2203 (this run)
+22:08:52 [DeepSeek-V4-Flash_re-high] 2000/2203 (this run)
+22:09:26 [DeepSeek-V4-Flash_re-high] 2203/2203 (this run)
+22:09:27 [DeepSeek-V4-Flash_re-high] resuming: 7917 done, 819 to do
+22:09:49 [DeepSeek-V4-Flash_re-high] 250/819 (this run)
+22:10:08 [DeepSeek-V4-Flash_re-high] 500/819 (this run)
+22:10:26 [DeepSeek-V4-Flash_re-high] 750/819 (this run)
+22:10:35 [DeepSeek-V4-Flash_re-high] 819/819 (this run)
+22:10:35 [DeepSeek-V4-Flash_re-max] resuming: 9976 done, 1256 to do
+22:11:31 [DeepSeek-V4-Flash_re-max] 250/1256 (this run)
+22:13:01 [DeepSeek-V4-Flash_re-max] 500/1256 (this run)
+22:14:17 [DeepSeek-V4-Flash_re-max] 750/1256 (this run)
+22:15:27 [DeepSeek-V4-Flash_re-max] 1000/1256 (this run)
+23:25:44 [DeepSeek-V4-Flash_re-max] 1250/1256 (this run)
+23:25:44 [DeepSeek-V4-Flash_re-max] 1256/1256 (this run)
+23:25:46 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+23:25:56 [robust flash] pass 4: 1826 missing
+23:25:56 [DeepSeek-V4-Flash_re-none] resuming: 9809 done, 1423 to do
+23:26:01 [DeepSeek-V4-Flash_re-none] 250/1423 (this run)
+23:26:22 [DeepSeek-V4-Flash_re-none] 500/1423 (this run)
+23:26:40 [DeepSeek-V4-Flash_re-none] 750/1423 (this run)
+23:26:58 [DeepSeek-V4-Flash_re-none] 1000/1423 (this run)
+23:27:17 [DeepSeek-V4-Flash_re-none] 1250/1423 (this run)
+23:27:51 [DeepSeek-V4-Flash_re-none] 1423/1423 (this run)
+23:27:52 [DeepSeek-V4-Flash_re-none] resuming: 8272 done, 464 to do
+23:28:08 [DeepSeek-V4-Flash_re-none] 250/464 (this run)
+23:28:37 [DeepSeek-V4-Flash_re-none] 464/464 (this run)
+23:28:37 [DeepSeek-V4-Flash_re-high] resuming: 9392 done, 1840 to do
+23:29:03 [DeepSeek-V4-Flash_re-high] 250/1840 (this run)
+23:29:24 [DeepSeek-V4-Flash_re-high] 500/1840 (this run)
+23:29:44 [DeepSeek-V4-Flash_re-high] 750/1840 (this run)
+23:30:03 [DeepSeek-V4-Flash_re-high] 1000/1840 (this run)
+23:30:22 [DeepSeek-V4-Flash_re-high] 1250/1840 (this run)
+23:30:43 [DeepSeek-V4-Flash_re-high] 1500/1840 (this run)
+23:31:03 [DeepSeek-V4-Flash_re-high] 1750/1840 (this run)
+23:31:54 [DeepSeek-V4-Flash_re-high] 1840/1840 (this run)
+23:31:54 [DeepSeek-V4-Flash_re-high] resuming: 8266 done, 470 to do
+23:32:10 [DeepSeek-V4-Flash_re-high] 250/470 (this run)
+23:32:41 [DeepSeek-V4-Flash_re-high] 470/470 (this run)
+23:32:41 [DeepSeek-V4-Flash_re-max] resuming: 9976 done, 1256 to do
+23:34:06 [DeepSeek-V4-Flash_re-max] 250/1256 (this run)
+23:35:28 [DeepSeek-V4-Flash_re-max] 500/1256 (this run)
+23:36:46 [DeepSeek-V4-Flash_re-max] 750/1256 (this run)
+23:38:27 [DeepSeek-V4-Flash_re-max] 1000/1256 (this run)
+23:40:34 [DeepSeek-V4-Flash_re-max] 1250/1256 (this run)
+00:11:23 [DeepSeek-V4-Flash_re-max] 1256/1256 (this run)
+00:11:24 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+00:11:41 [robust flash] pass 5: 1009 missing
+00:11:41 [DeepSeek-V4-Flash_re-none] resuming: 9853 done, 1379 to do
+00:11:50 [DeepSeek-V4-Flash_re-none] 250/1379 (this run)
+00:12:09 [DeepSeek-V4-Flash_re-none] 500/1379 (this run)
+00:12:28 [DeepSeek-V4-Flash_re-none] 750/1379 (this run)
+00:12:47 [DeepSeek-V4-Flash_re-none] 1000/1379 (this run)
+00:13:05 [DeepSeek-V4-Flash_re-none] 1250/1379 (this run)
+00:14:36 [DeepSeek-V4-Flash_re-none] 1379/1379 (this run)
+00:14:37 [DeepSeek-V4-Flash_re-none] resuming: 8492 done, 244 to do
+00:14:52 [DeepSeek-V4-Flash_re-none] 244/244 (this run)
+00:14:53 [DeepSeek-V4-Flash_re-high] resuming: 9593 done, 1639 to do
+00:15:19 [DeepSeek-V4-Flash_re-high] 250/1639 (this run)
+00:15:42 [DeepSeek-V4-Flash_re-high] 500/1639 (this run)
+00:16:04 [DeepSeek-V4-Flash_re-high] 750/1639 (this run)
+00:16:26 [DeepSeek-V4-Flash_re-high] 1000/1639 (this run)
+00:16:48 [DeepSeek-V4-Flash_re-high] 1250/1639 (this run)
+00:17:10 [DeepSeek-V4-Flash_re-high] 1500/1639 (this run)
+00:17:52 [DeepSeek-V4-Flash_re-high] 1639/1639 (this run)
+00:17:53 [DeepSeek-V4-Flash_re-high] resuming: 8584 done, 152 to do
+00:18:40 [DeepSeek-V4-Flash_re-high] 152/152 (this run)
+00:18:40 [DeepSeek-V4-Flash_re-max] resuming: 9976 done, 1256 to do
+00:20:34 [DeepSeek-V4-Flash_re-max] 250/1256 (this run)
+00:22:44 [DeepSeek-V4-Flash_re-max] 500/1256 (this run)
+00:24:30 [DeepSeek-V4-Flash_re-max] 750/1256 (this run)
+00:26:17 [DeepSeek-V4-Flash_re-max] 1000/1256 (this run)
+00:29:05 [DeepSeek-V4-Flash_re-max] 1250/1256 (this run)
+00:30:44 [DeepSeek-V4-Flash_re-max] 1256/1256 (this run)
+00:30:45 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+00:30:47 [robust flash] pass 6: 418 missing
+00:30:47 [DeepSeek-V4-Flash_re-none] resuming: 9884 done, 1348 to do
+00:30:57 [DeepSeek-V4-Flash_re-none] 250/1348 (this run)
+00:31:20 [DeepSeek-V4-Flash_re-none] 500/1348 (this run)
+00:31:41 [DeepSeek-V4-Flash_re-none] 750/1348 (this run)
+00:32:00 [DeepSeek-V4-Flash_re-none] 1000/1348 (this run)
+00:32:18 [DeepSeek-V4-Flash_re-none] 1250/1348 (this run)
+00:32:40 [DeepSeek-V4-Flash_re-none] 1348/1348 (this run)
+00:32:41 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+00:32:41 [DeepSeek-V4-Flash_re-high] resuming: 9733 done, 1499 to do
+00:33:07 [DeepSeek-V4-Flash_re-high] 250/1499 (this run)
+00:33:32 [DeepSeek-V4-Flash_re-high] 500/1499 (this run)
+00:33:56 [DeepSeek-V4-Flash_re-high] 750/1499 (this run)
+00:34:20 [DeepSeek-V4-Flash_re-high] 1000/1499 (this run)
+00:34:46 [DeepSeek-V4-Flash_re-high] 1250/1499 (this run)
+00:35:36 [DeepSeek-V4-Flash_re-high] 1499/1499 (this run)
+00:35:37 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+00:35:37 [DeepSeek-V4-Flash_re-max] resuming: 9976 done, 1256 to do
+00:37:05 [DeepSeek-V4-Flash_re-max] 250/1256 (this run)
+00:38:59 [DeepSeek-V4-Flash_re-max] 500/1256 (this run)
+10:35:37 [robust flash] start model=DeepSeek-V4-Flash missing=277
+10:35:38 [robust flash] pass 1: 277 missing
+10:35:38 [DeepSeek-V4-Flash_re-none] resuming: 11147 done, 85 to do
+10:36:05 [DeepSeek-V4-Flash_re-none] 85/85 (this run)
+10:36:06 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:36:06 [DeepSeek-V4-Flash_re-high] resuming: 11048 done, 184 to do
+10:37:06 [DeepSeek-V4-Flash_re-high] 184/184 (this run)
+10:37:07 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:37:07 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:37:59 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:38:01 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:38:03 [robust flash] pass 2: 29 missing
+10:38:03 [DeepSeek-V4-Flash_re-none] resuming: 11222 done, 10 to do
+10:38:19 [DeepSeek-V4-Flash_re-none] 10/10 (this run)
+10:38:21 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:38:21 [DeepSeek-V4-Flash_re-high] resuming: 11221 done, 11 to do
+10:39:08 [DeepSeek-V4-Flash_re-high] 11/11 (this run)
+10:39:09 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:39:10 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:41:01 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:41:04 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:41:06 [robust flash] pass 3: 26 missing
+10:41:06 [DeepSeek-V4-Flash_re-none] resuming: 11223 done, 9 to do
+10:41:28 [DeepSeek-V4-Flash_re-none] 9/9 (this run)
+10:41:29 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:41:29 [DeepSeek-V4-Flash_re-high] resuming: 11223 done, 9 to do
+10:42:07 [DeepSeek-V4-Flash_re-high] 9/9 (this run)
+10:42:08 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:42:08 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:43:04 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:43:05 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:43:06 [robust flash] pass 4: 26 missing
+10:43:06 [DeepSeek-V4-Flash_re-none] resuming: 11223 done, 9 to do
+10:43:22 [DeepSeek-V4-Flash_re-none] 9/9 (this run)
+10:43:23 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:43:23 [DeepSeek-V4-Flash_re-high] resuming: 11223 done, 9 to do
+10:43:44 [DeepSeek-V4-Flash_re-high] 9/9 (this run)
+10:43:45 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:43:46 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:45:05 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:45:06 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:45:07 [robust flash] pass 5: 25 missing
+10:45:08 [DeepSeek-V4-Flash_re-none] resuming: 11223 done, 9 to do
+10:45:35 [DeepSeek-V4-Flash_re-none] 9/9 (this run)
+10:45:36 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:45:36 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:46:09 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:46:10 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:46:10 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:47:16 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:47:17 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:47:19 [robust flash] pass 6: 24 missing
+10:47:19 [DeepSeek-V4-Flash_re-none] resuming: 11224 done, 8 to do
+10:47:39 [DeepSeek-V4-Flash_re-none] 8/8 (this run)
+10:47:40 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:47:40 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:47:59 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:48:00 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:48:00 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:48:53 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:48:54 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:48:55 [robust flash] pass 7: 24 missing
+10:48:55 [DeepSeek-V4-Flash_re-none] resuming: 11224 done, 8 to do
+10:49:09 [DeepSeek-V4-Flash_re-none] 8/8 (this run)
+10:49:10 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:49:11 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:49:40 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:49:41 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:49:42 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:52:00 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:52:01 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:52:02 [robust flash] pass 8: 24 missing
+10:52:02 [DeepSeek-V4-Flash_re-none] resuming: 11224 done, 8 to do
+10:52:41 [DeepSeek-V4-Flash_re-none] 8/8 (this run)
+10:52:42 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:52:42 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:53:03 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:53:03 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:53:04 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:55:23 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:55:24 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:55:26 [robust flash] pass 9: 24 missing
+10:55:26 [DeepSeek-V4-Flash_re-none] resuming: 11224 done, 8 to do
+10:55:52 [DeepSeek-V4-Flash_re-none] 8/8 (this run)
+10:55:53 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:55:53 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:56:20 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:56:21 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:56:21 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do
+10:58:34 [DeepSeek-V4-Flash_re-max] 8/8 (this run)
+10:58:35 [DeepSeek-V4-Flash_re-max] already complete (8736 rows), skipping
+10:58:36 [robust flash] pass 10: 24 missing
+10:58:37 [DeepSeek-V4-Flash_re-none] resuming: 11224 done, 8 to do
+10:59:04 [DeepSeek-V4-Flash_re-none] 8/8 (this run)
+10:59:05 [DeepSeek-V4-Flash_re-none] already complete (8736 rows), skipping
+10:59:06 [DeepSeek-V4-Flash_re-high] resuming: 11224 done, 8 to do
+10:59:39 [DeepSeek-V4-Flash_re-high] 8/8 (this run)
+10:59:40 [DeepSeek-V4-Flash_re-high] already complete (8736 rows), skipping
+10:59:40 [DeepSeek-V4-Flash_re-max] resuming: 11224 done, 8 to do

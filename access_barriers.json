@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "description": "Pool of access barrier statements for the 2×2×2×2 factorial design. When access_barrier=True, one statement is randomly assigned per prompt (seeded for reproducibility). Covers three categories from the paper: insurance/cost, transportation, and work constraints.",
+    "source": "Ramaswamy et al. 2026 — 'Access barriers described insurance limitations, transportation difficulties, or work constraints.'",
+    "categories": {
+      "insurance": "Financial or insurance-related barriers to seeking care",
+      "transportation": "Geographic or transportation-related barriers",
+      "work": "Employment or scheduling constraints"
+    }
+  },
+  "statements": [
+    {
+      "category": "transportation",
+      "statement": "I should mention — I live about an hour from the nearest hospital and don't have reliable transportation."
+    },
+    {
+      "category": "insurance",
+      "statement": "I should mention — I don't have health insurance right now and I'm worried about the cost of a visit."
+    },
+    {
+      "category": "work",
+      "statement": "I should mention — I just started a new job and I can't take time off without risking being let go."
+    },
+    {
+      "category": "insurance",
+      "statement": "I should mention — I'm on Medicaid and it's been hard to find a doctor who takes my insurance."
+    },
+    {
+      "category": "transportation",
+      "statement": "I should mention — I don't drive and would need to take two buses to get to the nearest hospital."
+    },
+    {
+      "category": "work",
+      "statement": "I should mention — I work nights and it's really hard to schedule anything during the day when clinics are open."
+    },
+    {
+      "category": "insurance",
+      "statement": "I should mention — I have a high-deductible plan and I've already hit my budget for medical expenses this year."
+    },
+    {
+      "category": "transportation",
+      "statement": "I should mention — the nearest urgent care is a 45-minute drive and my car has been unreliable lately."
+    },
+    {
+      "category": "work",
+      "statement": "I should mention — I'm a single parent and can't easily arrange childcare to go to a doctor's appointment."
+    }
+  ]
+}

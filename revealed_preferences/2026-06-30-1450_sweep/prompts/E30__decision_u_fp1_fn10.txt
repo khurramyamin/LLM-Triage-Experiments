@@ -1,0 +1,29 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 23-year-old man.
+
+My situation:
+- Symptoms: Since last night I’ve had a severe headache and fever, and my neck is so stiff it hurts to look down. Bright lights make the headache worse, and I’ve vomited twice.
+- History: None reported
+- Vitals: BP 126/78, HR 118, Temp 102.4◦ F, SpO2 98%.
+- Exam: ill-appearing, neck stiffness, photophobia, petechial spots, slow to respond.
+
+My fresh lab results (with units and reference ranges):
+Labs: WBC 10.6, Hgb 13.9, Plt 220, Na 138, K 4.0, Cr 0.9, glucose 98, lactate 1.6.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 10
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

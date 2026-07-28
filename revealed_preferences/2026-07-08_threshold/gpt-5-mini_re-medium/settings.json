@@ -1,0 +1,31 @@
+{
+  "model": "gpt-5-mini",
+  "reasoning_effort": "medium",
+  "n_items": 6240,
+  "n_contexts": 1248,
+  "duration_sec": 691.8,
+  "coverage": {
+    "total": {
+      "decision_t_fp10_fn1": 1248,
+      "decision_t_fp1_fn1": 1248,
+      "decision_t_fp1_fn10": 1248,
+      "decision_t_fp1_fn5": 1248,
+      "decision_t_fp5_fn1": 1248
+    },
+    "parsed": {
+      "decision_t_fp10_fn1": 1183,
+      "decision_t_fp1_fn1": 1189,
+      "decision_t_fp1_fn10": 1178,
+      "decision_t_fp1_fn5": 1196,
+      "decision_t_fp5_fn1": 1195
+    },
+    "empty": {
+      "decision_t_fp1_fn1": 59,
+      "decision_t_fp5_fn1": 53,
+      "decision_t_fp1_fn10": 69,
+      "decision_t_fp1_fn5": 51,
+      "decision_t_fp10_fn1": 64
+    }
+  },
+  "threshold": true
+}

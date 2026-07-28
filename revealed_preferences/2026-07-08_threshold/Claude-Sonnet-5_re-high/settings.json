@@ -1,0 +1,35 @@
+{
+  "model": "claude-sonnet-5",
+  "display_model": "Claude-Sonnet-5",
+  "reasoning_effort": "high",
+  "reasoning_method": "output_config.effort",
+  "thinking": "adaptive",
+  "max_tokens": 4096,
+  "n_items": 8736,
+  "n_contexts": 1248,
+  "duration_sec": 112.3,
+  "coverage": {
+    "total": {
+      "decision_t_fp100_fn1": 1248,
+      "decision_t_fp10_fn1": 1248,
+      "decision_t_fp1_fn1": 1248,
+      "decision_t_fp1_fn10": 1248,
+      "decision_t_fp1_fn100": 1248,
+      "decision_t_fp1_fn5": 1248,
+      "decision_t_fp5_fn1": 1248
+    },
+    "parsed": {
+      "decision_t_fp100_fn1": 1248,
+      "decision_t_fp10_fn1": 1248,
+      "decision_t_fp1_fn1": 1248,
+      "decision_t_fp1_fn10": 1248,
+      "decision_t_fp1_fn100": 1248,
+      "decision_t_fp1_fn5": 1248,
+      "decision_t_fp5_fn1": 1248
+    },
+    "empty": {}
+  },
+  "kind": "threshold",
+  "full_utilities": true,
+  "api": "anthropic.messages"
+}

@@ -1,0 +1,22 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 29-year-old man.
+
+My situation:
+- Symptoms: routine bloodwork who feels fine. Had a bad cold about 2 weeks ago, now resolved. No nosebleeds, gum bleeding, blood in urine/stool, or unusual bruising.
+- History: No blood thinners or new medications.
+- Vitals: BP 112/70, HR 74.
+- Exam: no abnormal findings.
+
+My fresh lab results (with units and reference ranges):
+Labs: Platelets 128 × 103 /µL (low), Hemoglobin 13.1 g/dL (normal), WBC 6.8 × 103 /µL (normal), INR 1.0 (normal).
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

@@ -1,0 +1,21 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 35-year-old man.
+
+My situation:
+- Symptoms: 8-hour bilateral band-like pressure headache, gradual onset over 1 hour. First-ever headache (“worst headache I’ve ever had, but I don’t usually get headaches”). No fever, stiff neck, vision changes, weakness, numbness, or vomiting.
+- History: None reported
+- Vitals: BP 128/82, HR 74, Temp 98.4◦ F, SpO2 99%.
+
+My fresh lab results (with units and reference ranges):
+Labs: WBC 7.8, Na 140, Glucose 96 — all normal.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

@@ -1,0 +1,6 @@
+[mini2] extra-utility run start 2026-07-10T14:33:03.098003
+[mini2] configs=[('gpt-5-mini', 'minimal'), ('gpt-5-mini', 'medium'), ('gpt-5-mini', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[mini2] 2496 utility + 2496 threshold prompts per config.
+
+=== [mini2] gpt-5-mini_re-minimal :: utility (2496 prompts) ===
+14:33:03 [gpt-5-mini_re-minimal] resuming: 9072 done, 186 to do

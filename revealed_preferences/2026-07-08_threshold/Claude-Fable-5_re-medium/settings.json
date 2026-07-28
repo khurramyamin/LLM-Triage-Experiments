@@ -1,0 +1,41 @@
+{
+  "model": "claude-fable-5",
+  "display_model": "Claude-Fable-5",
+  "reasoning_effort": "medium",
+  "reasoning_method": "output_config.effort",
+  "thinking": "always-on adaptive",
+  "max_tokens": 4096,
+  "n_items": 8736,
+  "n_contexts": 1248,
+  "duration_sec": 437.4,
+  "coverage": {
+    "total": {
+      "decision_t_fp100_fn1": 1248,
+      "decision_t_fp10_fn1": 1248,
+      "decision_t_fp1_fn1": 1248,
+      "decision_t_fp1_fn10": 1248,
+      "decision_t_fp1_fn100": 1248,
+      "decision_t_fp1_fn5": 1248,
+      "decision_t_fp5_fn1": 1248
+    },
+    "parsed": {
+      "decision_t_fp100_fn1": 1245,
+      "decision_t_fp10_fn1": 1246,
+      "decision_t_fp1_fn1": 1248,
+      "decision_t_fp1_fn10": 1248,
+      "decision_t_fp1_fn100": 1246,
+      "decision_t_fp1_fn5": 1247,
+      "decision_t_fp5_fn1": 1247
+    },
+    "empty": {
+      "decision_t_fp5_fn1": 1,
+      "decision_t_fp100_fn1": 3,
+      "decision_t_fp10_fn1": 2,
+      "decision_t_fp1_fn100": 2,
+      "decision_t_fp1_fn5": 1
+    }
+  },
+  "kind": "threshold",
+  "full_utilities": true,
+  "api": "anthropic.messages"
+}

@@ -1,0 +1,24 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 27-year-old man.
+
+My situation:
+- Symptoms: microscopic hematuria found on routine urinalysis the day after running a half-marathon. Completely asymptomatic — no dysuria, no flank pain, no fever, no gross hematuria.
+- History: No history of kidney problems.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 5
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

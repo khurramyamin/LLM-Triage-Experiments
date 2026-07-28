@@ -1,0 +1,37 @@
+{
+  "model": "gpt-5.4-mini",
+  "reasoning_effort": "high",
+  "n_items": 8736,
+  "n_contexts": 1248,
+  "duration_sec": 499.1,
+  "coverage": {
+    "total": {
+      "belief": 1248,
+      "decision_baseline": 1248,
+      "decision_u_fp10_fn1": 1248,
+      "decision_u_fp1_fn1": 1248,
+      "decision_u_fp1_fn10": 1248,
+      "decision_u_fp1_fn5": 1248,
+      "decision_u_fp5_fn1": 1248
+    },
+    "parsed": {
+      "belief": 1246,
+      "decision_baseline": 1243,
+      "decision_u_fp10_fn1": 1243,
+      "decision_u_fp1_fn1": 1242,
+      "decision_u_fp1_fn10": 1242,
+      "decision_u_fp1_fn5": 1247,
+      "decision_u_fp5_fn1": 1243
+    },
+    "empty": {
+      "decision_u_fp1_fn10": 3,
+      "decision_u_fp10_fn1": 4,
+      "decision_u_fp5_fn1": 3,
+      "decision_baseline": 3,
+      "decision_u_fp1_fn1": 3,
+      "belief": 2,
+      "decision_u_fp1_fn5": 1
+    }
+  },
+  "factorial": true
+}

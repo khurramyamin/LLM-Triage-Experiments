@@ -1,0 +1,39 @@
+{
+  "model": "claude-sonnet-5",
+  "display_model": "Claude-Sonnet-5",
+  "reasoning_effort": "low",
+  "reasoning_method": "output_config.effort",
+  "thinking": "adaptive",
+  "max_tokens": 4096,
+  "n_items": 11232,
+  "n_contexts": 1248,
+  "duration_sec": 195.1,
+  "coverage": {
+    "total": {
+      "belief": 1248,
+      "decision_baseline": 1248,
+      "decision_u_fp100_fn1": 1248,
+      "decision_u_fp10_fn1": 1248,
+      "decision_u_fp1_fn1": 1248,
+      "decision_u_fp1_fn10": 1248,
+      "decision_u_fp1_fn100": 1248,
+      "decision_u_fp1_fn5": 1248,
+      "decision_u_fp5_fn1": 1248
+    },
+    "parsed": {
+      "belief": 1248,
+      "decision_baseline": 1248,
+      "decision_u_fp100_fn1": 1248,
+      "decision_u_fp10_fn1": 1248,
+      "decision_u_fp1_fn1": 1248,
+      "decision_u_fp1_fn10": 1248,
+      "decision_u_fp1_fn100": 1248,
+      "decision_u_fp1_fn5": 1248,
+      "decision_u_fp5_fn1": 1248
+    },
+    "empty": {}
+  },
+  "kind": "factorial",
+  "full_utilities": true,
+  "api": "anthropic.messages"
+}

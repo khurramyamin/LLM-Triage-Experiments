@@ -1,0 +1,22 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 52-year-old man.
+
+My situation:
+- Symptoms: chronic depression on antidepressant therapy that “stopped working” over the past month. Daily passive suicidal ideation (“what’s the point”), passive death wish (“go to sleep and not wake up”). No identified method, no intent, no plan.
+- History: No prior suicide attempts. Retired, lives alone, socially isolated. Has psychiatrist but next appointment weeks away. Protective factors: family 1 hour away with phone contact, no firearms, rare alcohol, no drug use. Hesitant to reach out to family.
+- Vitals: BP 130/82, HR 68, Temp 98.2◦ F.
+- Exam: cooperative, oriented, depressed mood, congruent affect, no psychosis.
+
+My fresh lab results (with units and reference ranges):
+Labs: TSH, B12, CBC, BMP — all normal.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

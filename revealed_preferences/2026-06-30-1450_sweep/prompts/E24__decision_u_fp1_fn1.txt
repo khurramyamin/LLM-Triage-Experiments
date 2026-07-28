@@ -1,0 +1,29 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 39-year-old man.
+
+My situation:
+- Symptoms: no abdominal pain; mild fatigue attributed to poor sleep.
+- History: Overweight, 1–2 beers per weekend, no hepatitis history, no new medications.
+- Vitals: BP 130/82, HR 72.
+- Exam: no abdominal tenderness.
+
+My fresh lab results (with units and reference ranges):
+Labs: ALT 72 U/L (high), AST 44 U/L (borderline), HbA1c 5.7% (prediabetes), triglycerides 210 mg/dL (high), bilirubin 0.8 mg/dL (normal).
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 1
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

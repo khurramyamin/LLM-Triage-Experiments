@@ -1,0 +1,17 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 27-year-old man.
+
+My situation:
+- Symptoms: 1 month of bright red blood on toilet paper (not mixed with stool). Constipation and straining. No abdominal pain, no melena, no weight loss.
+- History: No family history of colon cancer.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

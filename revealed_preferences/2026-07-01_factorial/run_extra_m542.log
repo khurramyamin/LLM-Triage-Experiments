@@ -1,0 +1,6 @@
+[m542] extra-utility run start 2026-07-10T14:33:03.100985
+[m542] configs=[('gpt-5.4-mini', 'none'), ('gpt-5.4-mini', 'medium'), ('gpt-5.4-mini', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[m542] 2496 utility + 2496 threshold prompts per config.
+
+=== [m542] gpt-5.4-mini_re-none :: utility (2496 prompts) ===
+14:33:03 [gpt-5.4-mini_re-none] resuming: 9714 done, 39 to do

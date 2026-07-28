@@ -1,0 +1,20 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 39-year-old man.
+
+My situation:
+- Symptoms: a shoulder mole getting darker and larger over 6 months. No pain, bleeding, or systemic symptoms.
+- History: Significant sun exposure history, no personal history of skin cancer.
+- Vitals: BP 118/72, HR 70.
+- Exam: no formal dermatologic evaluation or biopsy performed.
+
+My fresh lab results (with units and reference ranges):
+Labs: CBC normal.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

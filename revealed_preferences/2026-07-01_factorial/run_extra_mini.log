@@ -1,0 +1,89 @@
+[mini] extra-utility run start 2026-07-10T14:01:01.877520
+[mini] configs=[('gpt-5-mini', 'minimal'), ('gpt-5-mini', 'medium'), ('gpt-5-mini', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[mini] 2496 utility + 2496 threshold prompts per config.
+
+=== [mini] gpt-5-mini_re-minimal :: utility (2496 prompts) ===
+14:01:02 [gpt-5-mini_re-minimal] resuming: 6762 done, 2496 to do
+14:01:13 [gpt-5-mini_re-minimal] 250/2496 (this run)
+14:01:17 [gpt-5-mini_re-minimal] 500/2496 (this run)
+14:01:39 [gpt-5-mini_re-minimal] 750/2496 (this run)
+14:02:06 [gpt-5-mini_re-minimal] 1000/2496 (this run)
+14:02:33 [gpt-5-mini_re-minimal] 1250/2496 (this run)
+14:02:59 [gpt-5-mini_re-minimal] 1500/2496 (this run)
+14:03:27 [gpt-5-mini_re-minimal] 1750/2496 (this run)
+14:03:54 [gpt-5-mini_re-minimal] 2000/2496 (this run)
+14:04:21 [gpt-5-mini_re-minimal] 2250/2496 (this run)
+14:05:40 [gpt-5-mini_re-minimal] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-minimal :: utility done in 279s
+
+=== [mini] gpt-5-mini_re-minimal :: threshold (2496 prompts) ===
+14:05:40 [gpt-5-mini_re-minimal] resuming: 5629 done, 2496 to do
+14:05:45 [gpt-5-mini_re-minimal] 250/2496 (this run)
+14:05:48 [gpt-5-mini_re-minimal] 500/2496 (this run)
+14:06:16 [gpt-5-mini_re-minimal] 750/2496 (this run)
+14:06:41 [gpt-5-mini_re-minimal] 1000/2496 (this run)
+14:07:09 [gpt-5-mini_re-minimal] 1250/2496 (this run)
+14:07:36 [gpt-5-mini_re-minimal] 1500/2496 (this run)
+14:08:02 [gpt-5-mini_re-minimal] 1750/2496 (this run)
+14:08:29 [gpt-5-mini_re-minimal] 2000/2496 (this run)
+14:08:56 [gpt-5-mini_re-minimal] 2250/2496 (this run)
+14:09:38 [gpt-5-mini_re-minimal] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-minimal :: threshold done in 238s
+
+=== [mini] gpt-5-mini_re-medium :: utility (2496 prompts) ===
+14:09:38 [gpt-5-mini_re-medium] resuming: 7189 done, 2496 to do
+14:10:01 [gpt-5-mini_re-medium] 250/2496 (this run)
+14:10:26 [gpt-5-mini_re-medium] 500/2496 (this run)
+14:10:55 [gpt-5-mini_re-medium] 750/2496 (this run)
+14:11:24 [gpt-5-mini_re-medium] 1000/2496 (this run)
+14:11:53 [gpt-5-mini_re-medium] 1250/2496 (this run)
+14:12:22 [gpt-5-mini_re-medium] 1500/2496 (this run)
+14:12:50 [gpt-5-mini_re-medium] 1750/2496 (this run)
+14:13:20 [gpt-5-mini_re-medium] 2000/2496 (this run)
+14:13:50 [gpt-5-mini_re-medium] 2250/2496 (this run)
+14:14:31 [gpt-5-mini_re-medium] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-medium :: utility done in 294s
+
+=== [mini] gpt-5-mini_re-medium :: threshold (2496 prompts) ===
+14:14:32 [gpt-5-mini_re-medium] resuming: 5941 done, 2496 to do
+14:14:48 [gpt-5-mini_re-medium] 250/2496 (this run)
+14:15:16 [gpt-5-mini_re-medium] 500/2496 (this run)
+14:15:45 [gpt-5-mini_re-medium] 750/2496 (this run)
+14:16:13 [gpt-5-mini_re-medium] 1000/2496 (this run)
+14:16:42 [gpt-5-mini_re-medium] 1250/2496 (this run)
+14:17:10 [gpt-5-mini_re-medium] 1500/2496 (this run)
+14:17:37 [gpt-5-mini_re-medium] 1750/2496 (this run)
+14:18:07 [gpt-5-mini_re-medium] 2000/2496 (this run)
+14:18:34 [gpt-5-mini_re-medium] 2250/2496 (this run)
+14:19:15 [gpt-5-mini_re-medium] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-medium :: threshold done in 284s
+
+=== [mini] gpt-5-mini_re-high :: utility (2496 prompts) ===
+14:19:15 [gpt-5-mini_re-high] resuming: 7477 done, 2496 to do
+14:19:57 [gpt-5-mini_re-high] 250/2496 (this run)
+14:20:30 [gpt-5-mini_re-high] 500/2496 (this run)
+14:21:02 [gpt-5-mini_re-high] 750/2496 (this run)
+14:21:36 [gpt-5-mini_re-high] 1000/2496 (this run)
+14:22:09 [gpt-5-mini_re-high] 1250/2496 (this run)
+14:22:39 [gpt-5-mini_re-high] 1500/2496 (this run)
+14:23:11 [gpt-5-mini_re-high] 1750/2496 (this run)
+14:23:44 [gpt-5-mini_re-high] 2000/2496 (this run)
+14:24:20 [gpt-5-mini_re-high] 2250/2496 (this run)
+14:25:20 [gpt-5-mini_re-high] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-high :: utility done in 365s
+
+=== [mini] gpt-5-mini_re-high :: threshold (2496 prompts) ===
+14:25:20 [gpt-5-mini_re-high] resuming: 6227 done, 2496 to do
+14:25:54 [gpt-5-mini_re-high] 250/2496 (this run)
+14:26:21 [gpt-5-mini_re-high] 500/2496 (this run)
+14:26:44 [gpt-5-mini_re-high] 750/2496 (this run)
+14:27:09 [gpt-5-mini_re-high] 1000/2496 (this run)
+14:27:33 [gpt-5-mini_re-high] 1250/2496 (this run)
+14:27:57 [gpt-5-mini_re-high] 1500/2496 (this run)
+14:28:20 [gpt-5-mini_re-high] 1750/2496 (this run)
+14:28:46 [gpt-5-mini_re-high] 2000/2496 (this run)
+14:29:14 [gpt-5-mini_re-high] 2250/2496 (this run)
+14:29:40 [gpt-5-mini_re-high] 2496/2496 (this run)
+  [mini] gpt-5-mini_re-high :: threshold done in 261s
+
+[mini] Done at 2026-07-10T14:29:41.304964

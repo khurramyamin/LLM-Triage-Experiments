@@ -1,0 +1,29 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 31-year-old man.
+
+My situation:
+- Symptoms: 20 minutes post-restaurant: sudden widespread hives, lip swelling, throat tightness, wheezing ("takes effort to get air in").
+- History: Known peanut/tree nut allergy, epi-pen unavailable, antihistamine taken with persisting symptoms.
+- Vitals: BP 122/76, HR 112, SpO2 95%, speaking in short sentences.
+- Exam: widespread urticaria, lip angioedema, audible wheezing.
+
+My fresh lab results (with units and reference ranges):
+Labs: CBC and BMP normal.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 1
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 1
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

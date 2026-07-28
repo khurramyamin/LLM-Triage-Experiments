@@ -1,0 +1,52 @@
+00:15:14 [robust pro] start model=DeepSeek-V4-Pro missing=58
+00:15:15 [robust pro] pass 1: 58 missing
+00:15:15 [DeepSeek-V4-Pro_re-none] resuming: 9976 done, 1256 to do
+00:15:26 [DeepSeek-V4-Pro_re-none] 250/1256 (this run)
+00:15:41 [DeepSeek-V4-Pro_re-none] 500/1256 (this run)
+00:16:00 [DeepSeek-V4-Pro_re-none] 750/1256 (this run)
+00:16:10 [DeepSeek-V4-Pro_re-none] 1000/1256 (this run)
+00:16:28 [DeepSeek-V4-Pro_re-none] 1250/1256 (this run)
+00:17:16 [DeepSeek-V4-Pro_re-none] 1256/1256 (this run)
+00:17:16 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+00:17:17 [DeepSeek-V4-Pro_re-high] resuming: 9976 done, 1256 to do
+00:19:01 [DeepSeek-V4-Pro_re-high] 250/1256 (this run)
+00:20:59 [DeepSeek-V4-Pro_re-high] 500/1256 (this run)
+00:22:53 [DeepSeek-V4-Pro_re-high] 750/1256 (this run)
+00:24:34 [DeepSeek-V4-Pro_re-high] 1000/1256 (this run)
+00:25:53 [DeepSeek-V4-Pro_re-high] 1250/1256 (this run)
+00:26:22 [DeepSeek-V4-Pro_re-high] 1256/1256 (this run)
+00:26:23 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+00:26:23 [DeepSeek-V4-Pro_re-max] resuming: 9975 done, 1257 to do
+00:34:19 [DeepSeek-V4-Pro_re-max] 250/1257 (this run)
+10:35:42 [robust pro] start model=DeepSeek-V4-Pro missing=56
+10:35:43 [robust pro] pass 1: 56 missing
+10:35:43 [DeepSeek-V4-Pro_re-none] resuming: 11224 done, 8 to do
+10:36:11 [DeepSeek-V4-Pro_re-none] 8/8 (this run)
+10:36:12 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+10:36:12 [DeepSeek-V4-Pro_re-high] resuming: 11224 done, 8 to do
+10:36:52 [DeepSeek-V4-Pro_re-high] 8/8 (this run)
+10:36:52 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+10:36:53 [DeepSeek-V4-Pro_re-max] resuming: 11224 done, 8 to do
+10:39:00 [DeepSeek-V4-Pro_re-max] 8/8 (this run)
+10:39:01 [DeepSeek-V4-Pro_re-max] resuming: 8704 done, 32 to do
+10:49:12 [DeepSeek-V4-Pro_re-max] 32/32 (this run)
+10:49:14 [robust pro] pass 2: 25 missing
+10:49:14 [DeepSeek-V4-Pro_re-none] resuming: 11224 done, 8 to do
+10:49:29 [DeepSeek-V4-Pro_re-none] 8/8 (this run)
+10:49:30 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+10:49:31 [DeepSeek-V4-Pro_re-high] resuming: 11224 done, 8 to do
+10:50:06 [DeepSeek-V4-Pro_re-high] 8/8 (this run)
+10:50:07 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+10:50:08 [DeepSeek-V4-Pro_re-max] resuming: 11224 done, 8 to do
+10:53:10 [DeepSeek-V4-Pro_re-max] 8/8 (this run)
+10:53:10 [DeepSeek-V4-Pro_re-max] resuming: 8735 done, 1 to do
+10:55:45 [DeepSeek-V4-Pro_re-max] 1/1 (this run)
+10:55:47 [robust pro] pass 3: 24 missing
+10:55:47 [DeepSeek-V4-Pro_re-none] resuming: 11224 done, 8 to do
+10:56:04 [DeepSeek-V4-Pro_re-none] 8/8 (this run)
+10:56:05 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+10:56:05 [DeepSeek-V4-Pro_re-high] resuming: 11224 done, 8 to do
+10:57:04 [DeepSeek-V4-Pro_re-high] 8/8 (this run)
+10:57:04 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+10:57:05 [DeepSeek-V4-Pro_re-max] resuming: 11224 done, 8 to do
+11:00:57 [DeepSeek-V4-Pro_re-max] 8/8 (this run)

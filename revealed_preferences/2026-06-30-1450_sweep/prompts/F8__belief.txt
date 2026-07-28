@@ -1,0 +1,15 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 31-year-old man.
+
+My situation:
+- Symptoms: 2 weeks of intermittent “heart skipping beats” a few times daily — flutter or thump sensation lasting 1–2 seconds, then returns to normal. No chest pain, shortness of breath, or fainting.
+- History: Drinks 4 cups of coffee daily. No family history of sudden cardiac death.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

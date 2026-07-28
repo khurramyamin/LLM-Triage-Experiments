@@ -1,0 +1,39 @@
+{
+  "model": "DeepSeek-V4-Pro",
+  "reasoning_effort": "max",
+  "n_items": 8736,
+  "n_contexts": 1248,
+  "duration_sec": 190.0,
+  "coverage": {
+    "total": {
+      "decision_t_fp100_fn1": 1261,
+      "decision_t_fp10_fn1": 1278,
+      "decision_t_fp1_fn1": 1273,
+      "decision_t_fp1_fn10": 1303,
+      "decision_t_fp1_fn100": 1301,
+      "decision_t_fp1_fn5": 1294,
+      "decision_t_fp5_fn1": 1302
+    },
+    "parsed": {
+      "decision_t_fp100_fn1": 1248,
+      "decision_t_fp10_fn1": 1244,
+      "decision_t_fp1_fn1": 1244,
+      "decision_t_fp1_fn10": 1242,
+      "decision_t_fp1_fn100": 1240,
+      "decision_t_fp1_fn5": 1243,
+      "decision_t_fp5_fn1": 1243
+    },
+    "empty": {
+      "decision_t_fp5_fn1": 59,
+      "decision_t_fp1_fn10": 61,
+      "decision_t_fp1_fn1": 29,
+      "decision_t_fp1_fn5": 51,
+      "decision_t_fp10_fn1": 34,
+      "decision_t_fp100_fn1": 13,
+      "decision_t_fp1_fn100": 61
+    }
+  },
+  "kind": "threshold",
+  "full_utilities": true,
+  "api": "chat.completions"
+}

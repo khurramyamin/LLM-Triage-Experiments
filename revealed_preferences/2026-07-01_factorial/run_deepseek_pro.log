@@ -1,0 +1,466 @@
+[pro] DeepSeek full run start 2026-07-10T17:24:17.508794
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+17:24:17 [DeepSeek-V4-Pro_re-none] resuming: 0 done, 11232 to do
+17:24:27 [DeepSeek-V4-Pro_re-none] 250/11232 (this run)
+17:24:30 [DeepSeek-V4-Pro_re-none] 500/11232 (this run)
+17:24:34 [DeepSeek-V4-Pro_re-none] 750/11232 (this run)
+17:24:37 [DeepSeek-V4-Pro_re-none] 1000/11232 (this run)
+17:24:41 [DeepSeek-V4-Pro_re-none] 1250/11232 (this run)
+17:24:54 [DeepSeek-V4-Pro_re-none] 1500/11232 (this run)
+17:25:08 [DeepSeek-V4-Pro_re-none] 1750/11232 (this run)
+17:25:24 [DeepSeek-V4-Pro_re-none] 2000/11232 (this run)
+17:25:36 [DeepSeek-V4-Pro_re-none] 2250/11232 (this run)
+17:25:51 [DeepSeek-V4-Pro_re-none] 2500/11232 (this run)
+17:26:06 [DeepSeek-V4-Pro_re-none] 2750/11232 (this run)
+17:26:20 [DeepSeek-V4-Pro_re-none] 3000/11232 (this run)
+17:26:34 [DeepSeek-V4-Pro_re-none] 3250/11232 (this run)
+17:26:48 [DeepSeek-V4-Pro_re-none] 3500/11232 (this run)
+17:27:03 [DeepSeek-V4-Pro_re-none] 3750/11232 (this run)
+17:27:20 [DeepSeek-V4-Pro_re-none] 4000/11232 (this run)
+17:27:34 [DeepSeek-V4-Pro_re-none] 4250/11232 (this run)
+17:27:46 [DeepSeek-V4-Pro_re-none] 4500/11232 (this run)
+17:28:01 [DeepSeek-V4-Pro_re-none] 4750/11232 (this run)
+17:28:16 [DeepSeek-V4-Pro_re-none] 5000/11232 (this run)
+17:28:29 [DeepSeek-V4-Pro_re-none] 5250/11232 (this run)
+17:28:44 [DeepSeek-V4-Pro_re-none] 5500/11232 (this run)
+17:28:58 [DeepSeek-V4-Pro_re-none] 5750/11232 (this run)
+17:29:13 [DeepSeek-V4-Pro_re-none] 6000/11232 (this run)
+17:29:28 [DeepSeek-V4-Pro_re-none] 6250/11232 (this run)
+17:29:40 [DeepSeek-V4-Pro_re-none] 6500/11232 (this run)
+17:29:55 [DeepSeek-V4-Pro_re-none] 6750/11232 (this run)
+17:30:11 [DeepSeek-V4-Pro_re-none] 7000/11232 (this run)
+17:30:24 [DeepSeek-V4-Pro_re-none] 7250/11232 (this run)
+17:30:40 [DeepSeek-V4-Pro_re-none] 7500/11232 (this run)
+17:30:54 [DeepSeek-V4-Pro_re-none] 7750/11232 (this run)
+17:31:08 [DeepSeek-V4-Pro_re-none] 8000/11232 (this run)
+17:31:22 [DeepSeek-V4-Pro_re-none] 8250/11232 (this run)
+17:31:36 [DeepSeek-V4-Pro_re-none] 8500/11232 (this run)
+17:31:51 [DeepSeek-V4-Pro_re-none] 8750/11232 (this run)
+17:32:05 [DeepSeek-V4-Pro_re-none] 9000/11232 (this run)
+17:32:20 [DeepSeek-V4-Pro_re-none] 9250/11232 (this run)
+17:32:36 [DeepSeek-V4-Pro_re-none] 9500/11232 (this run)
+17:32:50 [DeepSeek-V4-Pro_re-none] 9750/11232 (this run)
+17:33:05 [DeepSeek-V4-Pro_re-none] 10000/11232 (this run)
+17:33:20 [DeepSeek-V4-Pro_re-none] 10250/11232 (this run)
+17:33:34 [DeepSeek-V4-Pro_re-none] 10500/11232 (this run)
+17:33:48 [DeepSeek-V4-Pro_re-none] 10750/11232 (this run)
+17:34:02 [DeepSeek-V4-Pro_re-none] 11000/11232 (this run)
+17:34:54 [DeepSeek-V4-Pro_re-none] 11232/11232 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: factorial done in 638s
+
+=== [pro] DeepSeek-V4-Pro_re-none :: threshold (8736 prompts) ===
+17:34:55 [DeepSeek-V4-Pro_re-none] resuming: 0 done, 8736 to do
+17:35:01 [DeepSeek-V4-Pro_re-none] 250/8736 (this run)
+17:35:05 [DeepSeek-V4-Pro_re-none] 500/8736 (this run)
+17:35:08 [DeepSeek-V4-Pro_re-none] 750/8736 (this run)
+17:35:16 [DeepSeek-V4-Pro_re-none] 1000/8736 (this run)
+17:35:31 [DeepSeek-V4-Pro_re-none] 1250/8736 (this run)
+17:35:45 [DeepSeek-V4-Pro_re-none] 1500/8736 (this run)
+17:35:58 [DeepSeek-V4-Pro_re-none] 1750/8736 (this run)
+17:36:13 [DeepSeek-V4-Pro_re-none] 2000/8736 (this run)
+17:36:27 [DeepSeek-V4-Pro_re-none] 2250/8736 (this run)
+17:36:42 [DeepSeek-V4-Pro_re-none] 2500/8736 (this run)
+17:36:56 [DeepSeek-V4-Pro_re-none] 2750/8736 (this run)
+17:37:10 [DeepSeek-V4-Pro_re-none] 3000/8736 (this run)
+17:37:24 [DeepSeek-V4-Pro_re-none] 3250/8736 (this run)
+17:37:39 [DeepSeek-V4-Pro_re-none] 3500/8736 (this run)
+17:37:53 [DeepSeek-V4-Pro_re-none] 3750/8736 (this run)
+17:38:07 [DeepSeek-V4-Pro_re-none] 4000/8736 (this run)
+17:38:21 [DeepSeek-V4-Pro_re-none] 4250/8736 (this run)
+17:38:35 [DeepSeek-V4-Pro_re-none] 4500/8736 (this run)
+17:38:50 [DeepSeek-V4-Pro_re-none] 4750/8736 (this run)
+17:39:04 [DeepSeek-V4-Pro_re-none] 5000/8736 (this run)
+17:39:19 [DeepSeek-V4-Pro_re-none] 5250/8736 (this run)
+17:39:33 [DeepSeek-V4-Pro_re-none] 5500/8736 (this run)
+17:39:47 [DeepSeek-V4-Pro_re-none] 5750/8736 (this run)
+17:40:02 [DeepSeek-V4-Pro_re-none] 6000/8736 (this run)
+17:40:16 [DeepSeek-V4-Pro_re-none] 6250/8736 (this run)
+17:40:30 [DeepSeek-V4-Pro_re-none] 6500/8736 (this run)
+17:40:45 [DeepSeek-V4-Pro_re-none] 6750/8736 (this run)
+17:41:00 [DeepSeek-V4-Pro_re-none] 7000/8736 (this run)
+17:41:14 [DeepSeek-V4-Pro_re-none] 7250/8736 (this run)
+17:41:28 [DeepSeek-V4-Pro_re-none] 7500/8736 (this run)
+17:41:43 [DeepSeek-V4-Pro_re-none] 7750/8736 (this run)
+17:41:58 [DeepSeek-V4-Pro_re-none] 8000/8736 (this run)
+17:42:12 [DeepSeek-V4-Pro_re-none] 8250/8736 (this run)
+17:42:26 [DeepSeek-V4-Pro_re-none] 8500/8736 (this run)
+17:42:58 [DeepSeek-V4-Pro_re-none] 8736/8736 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: threshold done in 483s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: factorial (11232 prompts) ===
+17:43:03 [DeepSeek-V4-Pro_re-high] resuming: 0 done, 11232 to do
+17:43:46 [DeepSeek-V4-Pro_re-high] 250/11232 (this run)
+17:44:26 [DeepSeek-V4-Pro_re-high] 500/11232 (this run)
+17:44:54 [DeepSeek-V4-Pro_re-high] 750/11232 (this run)
+17:45:34 [DeepSeek-V4-Pro_re-high] 1000/11232 (this run)
+17:46:17 [DeepSeek-V4-Pro_re-high] 1250/11232 (this run)
+17:47:06 [DeepSeek-V4-Pro_re-high] 1500/11232 (this run)
+17:48:10 [DeepSeek-V4-Pro_re-high] 1750/11232 (this run)
+17:49:09 [DeepSeek-V4-Pro_re-high] 2000/11232 (this run)
+17:49:57 [DeepSeek-V4-Pro_re-high] 2250/11232 (this run)
+17:50:24 [DeepSeek-V4-Pro_re-high] 2500/11232 (this run)
+17:50:47 [DeepSeek-V4-Pro_re-high] 2750/11232 (this run)
+17:51:12 [DeepSeek-V4-Pro_re-high] 3000/11232 (this run)
+17:51:44 [DeepSeek-V4-Pro_re-high] 3250/11232 (this run)
+17:52:29 [DeepSeek-V4-Pro_re-high] 3500/11232 (this run)
+17:53:08 [DeepSeek-V4-Pro_re-high] 3750/11232 (this run)
+17:53:48 [DeepSeek-V4-Pro_re-high] 4000/11232 (this run)
+17:54:19 [DeepSeek-V4-Pro_re-high] 4250/11232 (this run)
+17:54:51 [DeepSeek-V4-Pro_re-high] 4500/11232 (this run)
+17:55:25 [DeepSeek-V4-Pro_re-high] 4750/11232 (this run)
+17:55:57 [DeepSeek-V4-Pro_re-high] 5000/11232 (this run)
+17:56:39 [DeepSeek-V4-Pro_re-high] 5250/11232 (this run)
+17:57:19 [DeepSeek-V4-Pro_re-high] 5500/11232 (this run)
+17:57:54 [DeepSeek-V4-Pro_re-high] 5750/11232 (this run)
+17:58:18 [DeepSeek-V4-Pro_re-high] 6000/11232 (this run)
+17:58:44 [DeepSeek-V4-Pro_re-high] 6250/11232 (this run)
+17:59:08 [DeepSeek-V4-Pro_re-high] 6500/11232 (this run)
+17:59:40 [DeepSeek-V4-Pro_re-high] 6750/11232 (this run)
+18:00:24 [DeepSeek-V4-Pro_re-high] 7000/11232 (this run)
+18:00:52 [DeepSeek-V4-Pro_re-high] 7250/11232 (this run)
+18:01:47 [DeepSeek-V4-Pro_re-high] 7500/11232 (this run)
+18:02:55 [DeepSeek-V4-Pro_re-high] 7750/11232 (this run)
+18:03:33 [DeepSeek-V4-Pro_re-high] 8000/11232 (this run)
+18:04:06 [DeepSeek-V4-Pro_re-high] 8250/11232 (this run)
+18:04:55 [DeepSeek-V4-Pro_re-high] 8500/11232 (this run)
+18:05:49 [DeepSeek-V4-Pro_re-high] 8750/11232 (this run)
+18:06:39 [DeepSeek-V4-Pro_re-high] 9000/11232 (this run)
+18:07:22 [DeepSeek-V4-Pro_re-high] 9250/11232 (this run)
+18:08:06 [DeepSeek-V4-Pro_re-high] 9500/11232 (this run)
+18:09:10 [DeepSeek-V4-Pro_re-high] 9750/11232 (this run)
+18:09:55 [DeepSeek-V4-Pro_re-high] 10000/11232 (this run)
+18:10:34 [DeepSeek-V4-Pro_re-high] 10250/11232 (this run)
+18:11:10 [DeepSeek-V4-Pro_re-high] 10500/11232 (this run)
+18:11:40 [DeepSeek-V4-Pro_re-high] 10750/11232 (this run)
+18:12:10 [DeepSeek-V4-Pro_re-high] 11000/11232 (this run)
+18:13:16 [DeepSeek-V4-Pro_re-high] 11232/11232 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: factorial done in 1814s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: threshold (8736 prompts) ===
+18:13:17 [DeepSeek-V4-Pro_re-high] resuming: 0 done, 8736 to do
+18:13:52 [DeepSeek-V4-Pro_re-high] 250/8736 (this run)
+18:14:23 [DeepSeek-V4-Pro_re-high] 500/8736 (this run)
+18:15:01 [DeepSeek-V4-Pro_re-high] 750/8736 (this run)
+18:15:44 [DeepSeek-V4-Pro_re-high] 1000/8736 (this run)
+18:16:21 [DeepSeek-V4-Pro_re-high] 1250/8736 (this run)
+18:17:03 [DeepSeek-V4-Pro_re-high] 1500/8736 (this run)
+18:17:40 [DeepSeek-V4-Pro_re-high] 1750/8736 (this run)
+18:17:59 [DeepSeek-V4-Pro_re-high] 2000/8736 (this run)
+18:18:17 [DeepSeek-V4-Pro_re-high] 2250/8736 (this run)
+18:18:36 [DeepSeek-V4-Pro_re-high] 2500/8736 (this run)
+18:19:11 [DeepSeek-V4-Pro_re-high] 2750/8736 (this run)
+18:19:41 [DeepSeek-V4-Pro_re-high] 3000/8736 (this run)
+18:20:05 [DeepSeek-V4-Pro_re-high] 3250/8736 (this run)
+18:20:30 [DeepSeek-V4-Pro_re-high] 3500/8736 (this run)
+18:20:50 [DeepSeek-V4-Pro_re-high] 3750/8736 (this run)
+18:21:16 [DeepSeek-V4-Pro_re-high] 4000/8736 (this run)
+18:21:39 [DeepSeek-V4-Pro_re-high] 4250/8736 (this run)
+18:22:03 [DeepSeek-V4-Pro_re-high] 4500/8736 (this run)
+18:22:17 [DeepSeek-V4-Pro_re-high] 4750/8736 (this run)
+18:22:32 [DeepSeek-V4-Pro_re-high] 5000/8736 (this run)
+18:22:54 [DeepSeek-V4-Pro_re-high] 5250/8736 (this run)
+18:23:19 [DeepSeek-V4-Pro_re-high] 5500/8736 (this run)
+18:23:40 [DeepSeek-V4-Pro_re-high] 5750/8736 (this run)
+18:24:21 [DeepSeek-V4-Pro_re-high] 6000/8736 (this run)
+18:24:49 [DeepSeek-V4-Pro_re-high] 6250/8736 (this run)
+18:25:21 [DeepSeek-V4-Pro_re-high] 6500/8736 (this run)
+18:25:55 [DeepSeek-V4-Pro_re-high] 6750/8736 (this run)
+18:26:39 [DeepSeek-V4-Pro_re-high] 7000/8736 (this run)
+18:27:11 [DeepSeek-V4-Pro_re-high] 7250/8736 (this run)
+18:27:49 [DeepSeek-V4-Pro_re-high] 7500/8736 (this run)
+18:28:22 [DeepSeek-V4-Pro_re-high] 7750/8736 (this run)
+18:28:44 [DeepSeek-V4-Pro_re-high] 8000/8736 (this run)
+18:29:04 [DeepSeek-V4-Pro_re-high] 8250/8736 (this run)
+18:29:21 [DeepSeek-V4-Pro_re-high] 8500/8736 (this run)
+18:29:42 [DeepSeek-V4-Pro_re-high] 8736/8736 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: threshold done in 985s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: factorial (11232 prompts) ===
+18:29:42 [DeepSeek-V4-Pro_re-max] resuming: 0 done, 11232 to do
+18:31:34 [DeepSeek-V4-Pro_re-max] 250/11232 (this run)
+18:33:44 [DeepSeek-V4-Pro_re-max] 500/11232 (this run)
+18:35:03 [DeepSeek-V4-Pro_re-max] 750/11232 (this run)
+18:36:46 [DeepSeek-V4-Pro_re-max] 1000/11232 (this run)
+18:38:56 [DeepSeek-V4-Pro_re-max] 1250/11232 (this run)
+18:41:28 [DeepSeek-V4-Pro_re-max] 1500/11232 (this run)
+18:45:19 [DeepSeek-V4-Pro_re-max] 1750/11232 (this run)
+18:48:36 [DeepSeek-V4-Pro_re-max] 2000/11232 (this run)
+18:51:06 [DeepSeek-V4-Pro_re-max] 2250/11232 (this run)
+18:52:11 [DeepSeek-V4-Pro_re-max] 2500/11232 (this run)
+18:52:59 [DeepSeek-V4-Pro_re-max] 2750/11232 (this run)
+18:53:43 [DeepSeek-V4-Pro_re-max] 3000/11232 (this run)
+18:54:46 [DeepSeek-V4-Pro_re-max] 3250/11232 (this run)
+18:56:39 [DeepSeek-V4-Pro_re-max] 3500/11232 (this run)
+18:58:32 [DeepSeek-V4-Pro_re-max] 3750/11232 (this run)
+19:00:56 [DeepSeek-V4-Pro_re-max] 4000/11232 (this run)
+19:02:24 [DeepSeek-V4-Pro_re-max] 4250/11232 (this run)
+19:03:47 [DeepSeek-V4-Pro_re-max] 4500/11232 (this run)
+19:05:21 [DeepSeek-V4-Pro_re-max] 4750/11232 (this run)
+19:06:28 [DeepSeek-V4-Pro_re-max] 5000/11232 (this run)
+19:08:48 [DeepSeek-V4-Pro_re-max] 5250/11232 (this run)
+19:10:37 [DeepSeek-V4-Pro_re-max] 5500/11232 (this run)
+19:12:15 [DeepSeek-V4-Pro_re-max] 5750/11232 (this run)
+19:12:55 [DeepSeek-V4-Pro_re-max] 6000/11232 (this run)
+19:13:40 [DeepSeek-V4-Pro_re-max] 6250/11232 (this run)
+19:14:27 [DeepSeek-V4-Pro_re-max] 6500/11232 (this run)
+19:15:34 [DeepSeek-V4-Pro_re-max] 6750/11232 (this run)
+19:17:17 [DeepSeek-V4-Pro_re-max] 7000/11232 (this run)
+19:18:10 [DeepSeek-V4-Pro_re-max] 7250/11232 (this run)
+19:20:05 [DeepSeek-V4-Pro_re-max] 7500/11232 (this run)
+19:23:00 [DeepSeek-V4-Pro_re-max] 7750/11232 (this run)
+19:24:29 [DeepSeek-V4-Pro_re-max] 8000/11232 (this run)
+19:25:57 [DeepSeek-V4-Pro_re-max] 8250/11232 (this run)
+19:28:00 [DeepSeek-V4-Pro_re-max] 8500/11232 (this run)
+19:30:37 [DeepSeek-V4-Pro_re-max] 8750/11232 (this run)
+19:33:25 [DeepSeek-V4-Pro_re-max] 9000/11232 (this run)
+19:35:29 [DeepSeek-V4-Pro_re-max] 9250/11232 (this run)
+19:37:16 [DeepSeek-V4-Pro_re-max] 9500/11232 (this run)
+19:39:56 [DeepSeek-V4-Pro_re-max] 9750/11232 (this run)
+19:41:50 [DeepSeek-V4-Pro_re-max] 10000/11232 (this run)
+19:43:00 [DeepSeek-V4-Pro_re-max] 10250/11232 (this run)
+19:44:03 [DeepSeek-V4-Pro_re-max] 10500/11232 (this run)
+19:45:21 [DeepSeek-V4-Pro_re-max] 10750/11232 (this run)
+19:46:42 [DeepSeek-V4-Pro_re-max] 11000/11232 (this run)
+[pro] DeepSeek full run start 2026-07-10T20:23:40.664152
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+20:23:40 [DeepSeek-V4-Pro_re-none] resuming: 9625 done, 1607 to do
+20:23:50 [DeepSeek-V4-Pro_re-none] 250/1607 (this run)
+20:23:53 [DeepSeek-V4-Pro_re-none] 500/1607 (this run)
+20:24:06 [DeepSeek-V4-Pro_re-none] 750/1607 (this run)
+20:24:12 [DeepSeek-V4-Pro_re-none] 1000/1607 (this run)
+20:24:17 [DeepSeek-V4-Pro_re-none] 1250/1607 (this run)
+20:24:21 [DeepSeek-V4-Pro_re-none] 1500/1607 (this run)
+[pro] DeepSeek full run start 2026-07-10T20:59:53.517360
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+20:59:53 [DeepSeek-V4-Pro_re-none] resuming: 9976 done, 1256 to do
+21:00:01 [DeepSeek-V4-Pro_re-none] 250/1256 (this run)
+21:00:06 [DeepSeek-V4-Pro_re-none] 500/1256 (this run)
+21:00:11 [DeepSeek-V4-Pro_re-none] 750/1256 (this run)
+21:00:14 [DeepSeek-V4-Pro_re-none] 1000/1256 (this run)
+21:00:33 [DeepSeek-V4-Pro_re-none] 1250/1256 (this run)
+21:00:33 [DeepSeek-V4-Pro_re-none] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: factorial done in 40s
+
+=== [pro] DeepSeek-V4-Pro_re-none :: threshold (8736 prompts) ===
+21:00:33 [DeepSeek-V4-Pro_re-none] resuming: 8389 done, 347 to do
+21:00:38 [DeepSeek-V4-Pro_re-none] 250/347 (this run)
+21:00:45 [DeepSeek-V4-Pro_re-none] 347/347 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: threshold done in 12s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: factorial (11232 prompts) ===
+21:00:49 [DeepSeek-V4-Pro_re-high] resuming: 9974 done, 1258 to do
+21:01:29 [DeepSeek-V4-Pro_re-high] 250/1258 (this run)
+21:02:09 [DeepSeek-V4-Pro_re-high] 500/1258 (this run)
+21:02:55 [DeepSeek-V4-Pro_re-high] 750/1258 (this run)
+21:03:30 [DeepSeek-V4-Pro_re-high] 1000/1258 (this run)
+21:03:57 [DeepSeek-V4-Pro_re-high] 1250/1258 (this run)
+21:04:15 [DeepSeek-V4-Pro_re-high] 1258/1258 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: factorial done in 206s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: threshold (8736 prompts) ===
+21:04:16 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-high :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: factorial (11232 prompts) ===
+21:04:16 [DeepSeek-V4-Pro_re-max] resuming: 9957 done, 1275 to do
+21:06:32 [DeepSeek-V4-Pro_re-max] 250/1275 (this run)
+21:08:41 [DeepSeek-V4-Pro_re-max] 500/1275 (this run)
+21:11:06 [DeepSeek-V4-Pro_re-max] 750/1275 (this run)
+21:12:44 [DeepSeek-V4-Pro_re-max] 1000/1275 (this run)
+21:14:19 [DeepSeek-V4-Pro_re-max] 1250/1275 (this run)
+21:16:19 [DeepSeek-V4-Pro_re-max] 1275/1275 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: factorial done in 724s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: threshold (8736 prompts) ===
+21:16:20 [DeepSeek-V4-Pro_re-max] resuming: 0 done, 8736 to do
+21:17:51 [DeepSeek-V4-Pro_re-max] 250/8736 (this run)
+21:19:33 [DeepSeek-V4-Pro_re-max] 500/8736 (this run)
+21:20:57 [DeepSeek-V4-Pro_re-max] 750/8736 (this run)
+21:22:46 [DeepSeek-V4-Pro_re-max] 1000/8736 (this run)
+21:24:56 [DeepSeek-V4-Pro_re-max] 1250/8736 (this run)
+21:27:09 [DeepSeek-V4-Pro_re-max] 1500/8736 (this run)
+21:28:37 [DeepSeek-V4-Pro_re-max] 1750/8736 (this run)
+21:29:28 [DeepSeek-V4-Pro_re-max] 2000/8736 (this run)
+21:30:05 [DeepSeek-V4-Pro_re-max] 2250/8736 (this run)
+21:30:55 [DeepSeek-V4-Pro_re-max] 2500/8736 (this run)
+21:32:19 [DeepSeek-V4-Pro_re-max] 2750/8736 (this run)
+21:34:11 [DeepSeek-V4-Pro_re-max] 3000/8736 (this run)
+21:35:31 [DeepSeek-V4-Pro_re-max] 3250/8736 (this run)
+21:36:38 [DeepSeek-V4-Pro_re-max] 3500/8736 (this run)
+21:37:35 [DeepSeek-V4-Pro_re-max] 3750/8736 (this run)
+21:39:09 [DeepSeek-V4-Pro_re-max] 4000/8736 (this run)
+21:40:33 [DeepSeek-V4-Pro_re-max] 4250/8736 (this run)
+21:41:39 [DeepSeek-V4-Pro_re-max] 4500/8736 (this run)
+21:42:14 [DeepSeek-V4-Pro_re-max] 4750/8736 (this run)
+21:42:55 [DeepSeek-V4-Pro_re-max] 5000/8736 (this run)
+21:43:57 [DeepSeek-V4-Pro_re-max] 5250/8736 (this run)
+21:45:05 [DeepSeek-V4-Pro_re-max] 5500/8736 (this run)
+21:46:01 [DeepSeek-V4-Pro_re-max] 5750/8736 (this run)
+21:48:49 [DeepSeek-V4-Pro_re-max] 6000/8736 (this run)
+21:49:56 [DeepSeek-V4-Pro_re-max] 6250/8736 (this run)
+21:51:20 [DeepSeek-V4-Pro_re-max] 6500/8736 (this run)
+21:53:21 [DeepSeek-V4-Pro_re-max] 6750/8736 (this run)
+21:55:22 [DeepSeek-V4-Pro_re-max] 7000/8736 (this run)
+21:56:56 [DeepSeek-V4-Pro_re-max] 7250/8736 (this run)
+21:59:05 [DeepSeek-V4-Pro_re-max] 7500/8736 (this run)
+22:01:04 [DeepSeek-V4-Pro_re-max] 7750/8736 (this run)
+22:02:06 [DeepSeek-V4-Pro_re-max] 8000/8736 (this run)
+22:02:44 [DeepSeek-V4-Pro_re-max] 8250/8736 (this run)
+22:03:24 [DeepSeek-V4-Pro_re-max] 8500/8736 (this run)
+22:04:25 [DeepSeek-V4-Pro_re-max] 8736/8736 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: threshold done in 2885s
+
+[pro] Done at 2026-07-10T22:04:25.797417
+[pro] DeepSeek full run start 2026-07-10T23:34:58.774669
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+23:34:58 [DeepSeek-V4-Pro_re-none] resuming: 9976 done, 1256 to do
+23:35:07 [DeepSeek-V4-Pro_re-none] 250/1256 (this run)
+23:35:13 [DeepSeek-V4-Pro_re-none] 500/1256 (this run)
+23:35:19 [DeepSeek-V4-Pro_re-none] 750/1256 (this run)
+23:35:26 [DeepSeek-V4-Pro_re-none] 1000/1256 (this run)
+23:36:12 [DeepSeek-V4-Pro_re-none] 1250/1256 (this run)
+23:36:27 [DeepSeek-V4-Pro_re-none] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: factorial done in 89s
+
+=== [pro] DeepSeek-V4-Pro_re-none :: threshold (8736 prompts) ===
+23:36:28 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-none :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: factorial (11232 prompts) ===
+23:36:29 [DeepSeek-V4-Pro_re-high] resuming: 9976 done, 1256 to do
+23:37:25 [DeepSeek-V4-Pro_re-high] 250/1256 (this run)
+23:38:23 [DeepSeek-V4-Pro_re-high] 500/1256 (this run)
+23:39:36 [DeepSeek-V4-Pro_re-high] 750/1256 (this run)
+23:40:30 [DeepSeek-V4-Pro_re-high] 1000/1256 (this run)
+23:41:16 [DeepSeek-V4-Pro_re-high] 1250/1256 (this run)
+23:41:55 [DeepSeek-V4-Pro_re-high] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: factorial done in 326s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: threshold (8736 prompts) ===
+23:41:55 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-high :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: factorial (11232 prompts) ===
+23:41:55 [DeepSeek-V4-Pro_re-max] resuming: 9974 done, 1258 to do
+23:44:29 [DeepSeek-V4-Pro_re-max] 250/1258 (this run)
+23:47:25 [DeepSeek-V4-Pro_re-max] 500/1258 (this run)
+23:49:38 [DeepSeek-V4-Pro_re-max] 750/1258 (this run)
+02:53:31 [DeepSeek-V4-Pro_re-max] 1000/1258 (this run)
+08:11:32 [DeepSeek-V4-Pro_re-max] 1250/1258 (this run)
+08:13:31 [DeepSeek-V4-Pro_re-max] 1258/1258 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: factorial done in 30696s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: threshold (8736 prompts) ===
+08:13:32 [DeepSeek-V4-Pro_re-max] resuming: 8584 done, 152 to do
+08:19:55 [DeepSeek-V4-Pro_re-max] 152/152 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: threshold done in 383s
+
+[pro] Done at 2026-07-11T08:19:55.598350
+[pro] DeepSeek full run start 2026-07-11T09:23:11.738373
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+09:23:11 [DeepSeek-V4-Pro_re-none] resuming: 9976 done, 1256 to do
+09:23:57 [DeepSeek-V4-Pro_re-none] 250/1256 (this run)
+09:24:52 [DeepSeek-V4-Pro_re-none] 500/1256 (this run)
+09:26:56 [DeepSeek-V4-Pro_re-none] 750/1256 (this run)
+09:29:14 [DeepSeek-V4-Pro_re-none] 1000/1256 (this run)
+09:32:07 [DeepSeek-V4-Pro_re-none] 1250/1256 (this run)
+09:33:10 [DeepSeek-V4-Pro_re-none] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: factorial done in 600s
+
+=== [pro] DeepSeek-V4-Pro_re-none :: threshold (8736 prompts) ===
+09:33:11 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-none :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: factorial (11232 prompts) ===
+09:33:17 [DeepSeek-V4-Pro_re-high] resuming: 9976 done, 1256 to do
+09:36:10 [DeepSeek-V4-Pro_re-high] 250/1256 (this run)
+09:38:38 [DeepSeek-V4-Pro_re-high] 500/1256 (this run)
+09:40:53 [DeepSeek-V4-Pro_re-high] 750/1256 (this run)
+09:43:43 [DeepSeek-V4-Pro_re-high] 1000/1256 (this run)
+09:47:40 [DeepSeek-V4-Pro_re-high] 1250/1256 (this run)
+09:48:30 [DeepSeek-V4-Pro_re-high] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: factorial done in 914s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: threshold (8736 prompts) ===
+09:48:31 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-high :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: factorial (11232 prompts) ===
+09:48:32 [DeepSeek-V4-Pro_re-max] resuming: 9974 done, 1258 to do
+09:53:53 [DeepSeek-V4-Pro_re-max] 250/1258 (this run)
+09:58:08 [DeepSeek-V4-Pro_re-max] 500/1258 (this run)
+10:01:57 [DeepSeek-V4-Pro_re-max] 750/1258 (this run)
+10:07:06 [DeepSeek-V4-Pro_re-max] 1000/1258 (this run)
+10:11:41 [DeepSeek-V4-Pro_re-max] 1250/1258 (this run)
+10:13:10 [DeepSeek-V4-Pro_re-max] 1258/1258 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: factorial done in 1479s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: threshold (8736 prompts) ===
+10:13:10 [DeepSeek-V4-Pro_re-max] resuming: 8660 done, 76 to do
+10:17:21 [DeepSeek-V4-Pro_re-max] 76/76 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: threshold done in 251s
+
+[pro] Done at 2026-07-11T10:17:21.860435
+[pro] DeepSeek full run start 2026-07-12T19:24:08.610808
+[pro] model=DeepSeek-V4-Pro levels=['none', 'high', 'max'] costs=[(100, 1), (10, 1), (5, 1), (1, 1), (1, 5), (1, 10), (1, 100)]
+[pro] 11232 factorial + 8736 threshold prompts per level across 1248 variants.
+
+=== [pro] DeepSeek-V4-Pro_re-none :: factorial (11232 prompts) ===
+19:24:08 [DeepSeek-V4-Pro_re-none] resuming: 9976 done, 1256 to do
+19:24:18 [DeepSeek-V4-Pro_re-none] 250/1256 (this run)
+19:24:32 [DeepSeek-V4-Pro_re-none] 500/1256 (this run)
+19:24:51 [DeepSeek-V4-Pro_re-none] 750/1256 (this run)
+19:24:59 [DeepSeek-V4-Pro_re-none] 1000/1256 (this run)
+19:25:17 [DeepSeek-V4-Pro_re-none] 1250/1256 (this run)
+19:28:44 [DeepSeek-V4-Pro_re-none] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-none :: factorial done in 277s
+
+=== [pro] DeepSeek-V4-Pro_re-none :: threshold (8736 prompts) ===
+19:28:46 [DeepSeek-V4-Pro_re-none] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-none :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: factorial (11232 prompts) ===
+19:28:54 [DeepSeek-V4-Pro_re-high] resuming: 9976 done, 1256 to do
+19:29:28 [DeepSeek-V4-Pro_re-high] 250/1256 (this run)
+19:30:20 [DeepSeek-V4-Pro_re-high] 500/1256 (this run)
+19:31:57 [DeepSeek-V4-Pro_re-high] 750/1256 (this run)
+19:32:40 [DeepSeek-V4-Pro_re-high] 1000/1256 (this run)
+19:33:09 [DeepSeek-V4-Pro_re-high] 1250/1256 (this run)
+19:33:29 [DeepSeek-V4-Pro_re-high] 1256/1256 (this run)
+  [pro] DeepSeek-V4-Pro_re-high :: factorial done in 276s
+
+=== [pro] DeepSeek-V4-Pro_re-high :: threshold (8736 prompts) ===
+19:33:29 [DeepSeek-V4-Pro_re-high] already complete (8736 rows), skipping
+  [pro] DeepSeek-V4-Pro_re-high :: threshold done in 0s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: factorial (11232 prompts) ===
+19:33:30 [DeepSeek-V4-Pro_re-max] resuming: 9974 done, 1258 to do
+19:34:21 [DeepSeek-V4-Pro_re-max] 250/1258 (this run)
+19:37:07 [DeepSeek-V4-Pro_re-max] 500/1258 (this run)
+19:38:32 [DeepSeek-V4-Pro_re-max] 750/1258 (this run)
+19:39:39 [DeepSeek-V4-Pro_re-max] 1000/1258 (this run)
+19:41:42 [DeepSeek-V4-Pro_re-max] 1250/1258 (this run)
+19:44:42 [DeepSeek-V4-Pro_re-max] 1258/1258 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: factorial done in 673s
+
+=== [pro] DeepSeek-V4-Pro_re-max :: threshold (8736 prompts) ===
+19:44:43 [DeepSeek-V4-Pro_re-max] resuming: 8688 done, 48 to do
+19:47:52 [DeepSeek-V4-Pro_re-max] 48/48 (this run)
+  [pro] DeepSeek-V4-Pro_re-max :: threshold done in 190s
+
+[pro] Done at 2026-07-12T19:47:53.711199

@@ -1,0 +1,19 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 23-year-old man.
+
+My situation:
+- Symptoms: Reports polydipsia, polyuria, nausea, and mild abdominal discomfort since today. Not confused, tolerating sips of water, no fever.
+- History: Type 1 diabetes.
+- Vitals: BP 118/74, HR 104, RR 20, Temp 98.7◦ F, SpO2 98%.
+
+My fresh lab results (with units and reference ranges):
+Labs: glucose 320 mg/dL, venous pH 7.31, beta-hydroxybutyrate 2.8 mmol/L, anion gap 18, bicarbonate 18 mmol/L, K 4.8, Cr 1.2.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

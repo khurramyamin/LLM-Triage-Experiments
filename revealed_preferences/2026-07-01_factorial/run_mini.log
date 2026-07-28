@@ -1,0 +1,134 @@
+Built 8736 prompts across 1248 variants (7 regimes each).
+Factorial sweep root: revealed_preferences\2026-07-01_factorial
+Configs (3): [('gpt-5-mini', 'minimal'), ('gpt-5-mini', 'medium'), ('gpt-5-mini', 'high')] = 26208 total calls.
+
+=== gpt-5-mini_re-minimal (8736 prompts) ===
+Exception ignored in: <function Popen.__del__ at 0x0000026A5A17F880>
+Traceback (most recent call last):
+  File "C:\Users\t-kyamin\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1130, in __del__
+    self._internal_poll(_deadstate=_maxsize)
+  File "C:\Users\t-kyamin\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1575, in _internal_poll
+    if _WaitForSingleObject(self._handle, 0) == _WAIT_OBJECT_0:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 6] The handle is invalid
+Exception ignored in: <function Handle.Close at 0x0000026A5A17E7A0>
+Traceback (most recent call last):
+  File "C:\Users\t-kyamin\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 221, in Close
+    CloseHandle(self)
+OSError: [WinError 6] The handle is invalid
+13:10:51 [gpt-5-mini_re-minimal] 250/8736
+13:10:55 [gpt-5-mini_re-minimal] 500/8736
+13:11:15 [gpt-5-mini_re-minimal] 750/8736
+13:11:44 [gpt-5-mini_re-minimal] 1000/8736
+13:12:09 [gpt-5-mini_re-minimal] 1250/8736
+13:12:36 [gpt-5-mini_re-minimal] 1500/8736
+13:13:04 [gpt-5-mini_re-minimal] 1750/8736
+13:13:30 [gpt-5-mini_re-minimal] 2000/8736
+13:13:56 [gpt-5-mini_re-minimal] 2250/8736
+13:14:23 [gpt-5-mini_re-minimal] 2500/8736
+13:14:50 [gpt-5-mini_re-minimal] 2750/8736
+13:15:16 [gpt-5-mini_re-minimal] 3000/8736
+13:15:42 [gpt-5-mini_re-minimal] 3250/8736
+13:16:09 [gpt-5-mini_re-minimal] 3500/8736
+13:16:36 [gpt-5-mini_re-minimal] 3750/8736
+13:17:02 [gpt-5-mini_re-minimal] 4000/8736
+13:17:30 [gpt-5-mini_re-minimal] 4250/8736
+13:17:56 [gpt-5-mini_re-minimal] 4500/8736
+13:18:22 [gpt-5-mini_re-minimal] 4750/8736
+13:18:49 [gpt-5-mini_re-minimal] 5000/8736
+13:19:15 [gpt-5-mini_re-minimal] 5250/8736
+13:19:42 [gpt-5-mini_re-minimal] 5500/8736
+13:20:10 [gpt-5-mini_re-minimal] 5750/8736
+13:20:36 [gpt-5-mini_re-minimal] 6000/8736
+13:21:02 [gpt-5-mini_re-minimal] 6250/8736
+13:21:29 [gpt-5-mini_re-minimal] 6500/8736
+13:21:55 [gpt-5-mini_re-minimal] 6750/8736
+13:35:14 [gpt-5-mini_re-minimal] 7000/8736
+13:35:19 [gpt-5-mini_re-minimal] 7250/8736
+13:35:25 [gpt-5-mini_re-minimal] 7500/8736
+13:35:55 [gpt-5-mini_re-minimal] 7750/8736
+13:36:21 [gpt-5-mini_re-minimal] 8000/8736
+13:36:48 [gpt-5-mini_re-minimal] 8250/8736
+13:37:14 [gpt-5-mini_re-minimal] 8500/8736
+13:38:02 [gpt-5-mini_re-minimal] 8736/8736
+  done in 1647s
+
+=== gpt-5-mini_re-medium (8736 prompts) ===
+13:38:35 [gpt-5-mini_re-medium] 250/8736
+13:38:51 [gpt-5-mini_re-medium] 500/8736
+13:39:12 [gpt-5-mini_re-medium] 750/8736
+13:39:44 [gpt-5-mini_re-medium] 1000/8736
+13:40:13 [gpt-5-mini_re-medium] 1250/8736
+13:40:41 [gpt-5-mini_re-medium] 1500/8736
+13:41:11 [gpt-5-mini_re-medium] 1750/8736
+13:41:38 [gpt-5-mini_re-medium] 2000/8736
+13:42:05 [gpt-5-mini_re-medium] 2250/8736
+13:42:36 [gpt-5-mini_re-medium] 2500/8736
+13:43:05 [gpt-5-mini_re-medium] 2750/8736
+13:43:33 [gpt-5-mini_re-medium] 3000/8736
+13:44:03 [gpt-5-mini_re-medium] 3250/8736
+13:44:31 [gpt-5-mini_re-medium] 3500/8736
+13:44:59 [gpt-5-mini_re-medium] 3750/8736
+13:45:30 [gpt-5-mini_re-medium] 4000/8736
+13:45:58 [gpt-5-mini_re-medium] 4250/8736
+13:46:27 [gpt-5-mini_re-medium] 4500/8736
+13:46:55 [gpt-5-mini_re-medium] 4750/8736
+13:47:24 [gpt-5-mini_re-medium] 5000/8736
+13:47:53 [gpt-5-mini_re-medium] 5250/8736
+13:48:23 [gpt-5-mini_re-medium] 5500/8736
+13:48:51 [gpt-5-mini_re-medium] 5750/8736
+13:49:20 [gpt-5-mini_re-medium] 6000/8736
+13:49:47 [gpt-5-mini_re-medium] 6250/8736
+13:50:18 [gpt-5-mini_re-medium] 6500/8736
+13:50:46 [gpt-5-mini_re-medium] 6750/8736
+13:51:16 [gpt-5-mini_re-medium] 7000/8736
+13:51:43 [gpt-5-mini_re-medium] 7250/8736
+13:52:12 [gpt-5-mini_re-medium] 7500/8736
+13:52:40 [gpt-5-mini_re-medium] 7750/8736
+13:53:08 [gpt-5-mini_re-medium] 8000/8736
+13:53:37 [gpt-5-mini_re-medium] 8250/8736
+13:54:04 [gpt-5-mini_re-medium] 8500/8736
+13:54:43 [gpt-5-mini_re-medium] 8736/8736
+  done in 992s
+
+=== gpt-5-mini_re-high (8736 prompts) ===
+13:55:27 [gpt-5-mini_re-high] 250/8736
+13:56:01 [gpt-5-mini_re-high] 500/8736
+13:56:36 [gpt-5-mini_re-high] 750/8736
+13:57:08 [gpt-5-mini_re-high] 1000/8736
+13:57:50 [gpt-5-mini_re-high] 1250/8736
+13:58:33 [gpt-5-mini_re-high] 1500/8736
+13:59:12 [gpt-5-mini_re-high] 1750/8736
+13:59:34 [gpt-5-mini_re-high] 2000/8736
+13:59:56 [gpt-5-mini_re-high] 2250/8736
+14:00:27 [gpt-5-mini_re-high] 2500/8736
+14:01:04 [gpt-5-mini_re-high] 2750/8736
+14:01:34 [gpt-5-mini_re-high] 3000/8736
+14:02:08 [gpt-5-mini_re-high] 3250/8736
+14:02:39 [gpt-5-mini_re-high] 3500/8736
+14:03:12 [gpt-5-mini_re-high] 3750/8736
+14:03:47 [gpt-5-mini_re-high] 4000/8736
+14:04:22 [gpt-5-mini_re-high] 4250/8736
+14:04:55 [gpt-5-mini_re-high] 4500/8736
+14:05:18 [gpt-5-mini_re-high] 4750/8736
+14:05:45 [gpt-5-mini_re-high] 5000/8736
+14:06:18 [gpt-5-mini_re-high] 5250/8736
+14:06:51 [gpt-5-mini_re-high] 5500/8736
+14:07:18 [gpt-5-mini_re-high] 5750/8736
+14:07:56 [gpt-5-mini_re-high] 6000/8736
+14:08:25 [gpt-5-mini_re-high] 6250/8736
+14:08:57 [gpt-5-mini_re-high] 6500/8736
+14:09:34 [gpt-5-mini_re-high] 6750/8736
+14:10:10 [gpt-5-mini_re-high] 7000/8736
+14:10:42 [gpt-5-mini_re-high] 7250/8736
+14:11:20 [gpt-5-mini_re-high] 7500/8736
+14:11:57 [gpt-5-mini_re-high] 7750/8736
+14:12:25 [gpt-5-mini_re-high] 8000/8736
+14:12:48 [gpt-5-mini_re-high] 8250/8736
+14:13:16 [gpt-5-mini_re-high] 8500/8736
+14:14:00 [gpt-5-mini_re-high] 8736/8736
+  done in 1157s
+
+Wrote sweep summary to revealed_preferences\2026-07-01_factorial\summary.md
+
+Done. Sweep at revealed_preferences\2026-07-01_factorial

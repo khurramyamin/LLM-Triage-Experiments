@@ -1,0 +1,11 @@
+[r3mini] extra-utility run start 2026-07-10T14:36:41.155271
+[r3mini] configs=[('gpt-5-mini', 'minimal'), ('gpt-5-mini', 'medium'), ('gpt-5-mini', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[r3mini] 2496 utility + 2496 threshold prompts per config.
+
+=== [r3mini] gpt-5-mini_re-minimal :: utility (2496 prompts) ===
+14:36:41 [gpt-5-mini_re-minimal] resuming: 9072 done, 186 to do
+Exception ignored in: <function Handle.Close at 0x000001D88A66B100>
+Traceback (most recent call last):
+  File "C:\Users\t-kyamin\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 221, in Close
+    CloseHandle(self)
+OSError: [WinError 6] The handle is invalid

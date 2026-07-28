@@ -1,0 +1,65 @@
+{
+  "decision_t_fp100_fn1": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp10_fn1": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp1_fn1": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp1_fn10": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp1_fn100": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp1_fn5": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  },
+  "decision_t_fp5_fn1": {
+    "n": 0,
+    "c_fp": null,
+    "c_fn": null,
+    "ratio_fn_fp": null,
+    "loglik": null,
+    "frac_admit": null,
+    "degenerate": true
+  }
+}

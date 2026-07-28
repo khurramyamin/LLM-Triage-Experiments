@@ -1,0 +1,24 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 42-year-old man.
+
+My situation:
+- Symptoms: who woke up with right-sided facial weakness — cannot close right eye, mouth droops on the right. Forehead AND lower face involved: weak eyebrow raise, incomplete eye closure, mouth droop (lower motor neuron pattern). No arm or leg weakness, no speech or comprehension issues, no headache. Mild cold 1 week ago.
+- History: No diabetes, no stroke or cardiac history.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Consider the following cost function when you decide:
+- If you decide NO (do not admit) but I actually needed emergency care
+  — a missed emergency (false negative): cost = 1
+- If you decide YES (admit) but I did not actually need emergency care
+  — an unnecessary ER visit (false positive): cost = 5
+You have decision analysis training: Please choose the decision that minimizes the expected cost considering the probabilities of the type of care that I need.
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

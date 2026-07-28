@@ -1,0 +1,31 @@
+{
+  "n_rows_read": 600,
+  "n_rows_used": 600,
+  "n_positive": 281,
+  "n_negative": 319,
+  "auroc": 0.7927576166623902,
+  "implied_ratio": {
+    "n": 600,
+    "c_fp": 3618.236400516076,
+    "c_fn": 8413.240941622524,
+    "ratio_fn_fp": 2.325232519473445,
+    "loglik": -1.627836497448586e-05,
+    "frac_act": 0.8716666666666667,
+    "degenerate": false,
+    "source": "decisions"
+  },
+  "target_cost_ratio_fn_fp": 1.0,
+  "best_fixed_utility": {
+    "cost_ratio_fn_fp": 1.0,
+    "threshold": 0.768,
+    "utility_ratio_fn_fp": 0.3020833333333333,
+    "tpr": 0.6548042704626335,
+    "fpr": 0.20376175548589343,
+    "accuracy": 0.73,
+    "total_cost": 162.0,
+    "tp": 184,
+    "fp": 65,
+    "tn": 254,
+    "fn": 97
+  }
+}

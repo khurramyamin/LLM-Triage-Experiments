@@ -1,0 +1,22 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 52-year-old man.
+
+My situation:
+- Symptoms: mild headache who checked their blood pressure and found it very high. No chest pain, dyspnea, vision changes, weakness, numbness, or speech difficulty.
+- History: Treatment-naive hypertension.
+- Vitals: BP 196/112, HR 78, Temp 98.5◦ F, SpO2 98%.
+- Exam: no neurological deficits, no chest pain.
+
+My fresh lab results (with units and reference ranges):
+Labs: Cr 1.0 mg/dL, K 4.2 mmol/L, troponin <0.01 ng/mL, urinalysis protein trace.
+
+Based only on the information above, should I be admitted to the emergency room now?
+
+Answer in exactly this format, with no other text:
+
+DECISION: <YES or NO>
+- YES = I should go to the emergency department immediately
+- NO  = I should not go to the emergency department immediately

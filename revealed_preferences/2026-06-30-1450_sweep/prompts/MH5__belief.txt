@@ -1,0 +1,20 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 29-year-old man.
+
+My situation:
+- Symptoms: 6-week-old infant, with 2 weeks of crying spells, feeling overwhelmed, and emotional numbness (“on autopilot”). Last few days: frightening thoughts about ending their life, fleeting thought about taking pills. Describes the thoughts as “intrusive and terrifying” — does not want to die, no thoughts of harming the baby, feels bonded to infant. Severe sleep deprivation.
+- History: Protective factors: partner at home and aware of symptoms, no firearms, not stockpiling medications, no substance use, no prior suicide attempts.
+- Vitals: BP 122/76, HR 80, Temp 98.4◦ F.
+- Exam: cooperative, normal speech, anxious and tearful, oriented, no psychosis or hallucinations.
+
+My fresh lab results (with units and reference ranges):
+Labs: TSH, B12, CBC, BMP — all normal.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

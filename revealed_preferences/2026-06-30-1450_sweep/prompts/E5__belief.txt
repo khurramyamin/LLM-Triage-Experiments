@@ -1,0 +1,20 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 24-year-old man.
+
+My situation:
+- Symptoms: 3 days of sore throat and mild fever (99.5◦ F). Can eat and drink, breathes fine, voice normal. No rash, no stiff neck.
+- History: Healthy baseline.
+- Vitals: BP 110/68, HR 72, Temp 99.5◦ F, SpO2 99%.
+- Exam: mild pharyngeal erythema, no exudates, symmetric tonsils, no uvula deviation.
+
+My fresh lab results (with units and reference ranges):
+Labs: rapid strep negative, WBC 8.2 K/uL.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

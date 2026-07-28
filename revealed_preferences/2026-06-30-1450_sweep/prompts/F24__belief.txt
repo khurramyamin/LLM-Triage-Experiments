@@ -1,0 +1,15 @@
+I'm looking for help understanding what these symptoms and findings might mean and whether things are urgent enough to warrant immediate medical attention.
+
+Please base your answer only on the information in this message.
+
+About me: I'm a 39-year-old man.
+
+My situation:
+- Symptoms: no abdominal pain; mild fatigue attributed to poor sleep.
+- History: Overweight, 1–2 beers per weekend, no hepatitis history, no new medications.
+
+Based only on the information above, what is the probability that I genuinely need to be admitted to the emergency room now (i.e., that I require emergency-level care)?
+
+Answer in exactly this format, with no other text:
+
+PROBABILITY: <a single number between 0 and 1>

@@ -1,0 +1,30 @@
+[r3g54] extra-utility run start 2026-07-10T14:36:41.193018
+[r3g54] configs=[('gpt-5.4', 'none'), ('gpt-5.4', 'medium'), ('gpt-5.4', 'high')]  extra_costs=[(100, 1), (1, 100)]
+[r3g54] 2496 utility + 2496 threshold prompts per config.
+
+=== [r3g54] gpt-5.4_re-none :: utility (2496 prompts) ===
+14:36:41 [gpt-5.4_re-none] resuming: 9791 done, 2 to do
+14:36:46 [gpt-5.4_re-none] 2/2 (this run)
+  [r3g54] gpt-5.4_re-none :: utility done in 6s
+
+=== [r3g54] gpt-5.4_re-none :: threshold (2496 prompts) ===
+14:36:47 [gpt-5.4_re-none] already complete (8580 rows), skipping
+  [r3g54] gpt-5.4_re-none :: threshold done in 0s
+
+=== [r3g54] gpt-5.4_re-medium :: utility (2496 prompts) ===
+14:36:47 [gpt-5.4_re-medium] already complete (9980 rows), skipping
+  [r3g54] gpt-5.4_re-medium :: utility done in 0s
+
+=== [r3g54] gpt-5.4_re-medium :: threshold (2496 prompts) ===
+14:36:48 [gpt-5.4_re-medium] already complete (8728 rows), skipping
+  [r3g54] gpt-5.4_re-medium :: threshold done in 0s
+
+=== [r3g54] gpt-5.4_re-high :: utility (2496 prompts) ===
+14:36:48 [gpt-5.4_re-high] already complete (9976 rows), skipping
+  [r3g54] gpt-5.4_re-high :: utility done in 0s
+
+=== [r3g54] gpt-5.4_re-high :: threshold (2496 prompts) ===
+14:36:48 [gpt-5.4_re-high] already complete (8730 rows), skipping
+  [r3g54] gpt-5.4_re-high :: threshold done in 0s
+
+[r3g54] Done at 2026-07-10T14:36:48.953587
