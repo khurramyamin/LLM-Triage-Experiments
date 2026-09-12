@@ -1,563 +1,378 @@
 #!/usr/bin/env python3
-"""
-generic_roc.py — ROC + utility recovery for any labeled beliefs/decisions dataset.
-
-This is a portable, self-contained version of the analysis used in the Nature
-Medicine commentary (see the repository root README). It takes a *generic*
-labeled dataset — one row per case, with an elicited **belief** (a probability
-in [0, 1]), a ground-truth **label**, and optionally an observed binary
-**decision** — and does four things:
-
-  1. Builds the belief-vs-label **ROC curve** and reports the AUROC.
-
-  2. **Backs out the FN/FP cost ratio implied by the dataset** using the
-     revealed-preference discrete-choice (logit) fit of Yamin et al. If a
-     ``decision`` column is present, the ratio is recovered from the observed
-     decisions relative to the beliefs (the priority the decision-maker behaved
-     *as if* it held). If no decisions are given, the ratio is recovered from
-     the ground-truth labels themselves.
-
-  3. Lets you specify a **target cost ratio** (FN:FP) to evaluate by.
-
-  4. Finds the **best fixed utility ratio** for that target cost ratio: the
-     single belief threshold that minimises the target-weighted expected cost
-     on the ROC, expressed as the FN/FP cost ratio you would prompt an LLM with
-     to reproduce that operating point on unseen data.
-
-The r = 1 (1:1) special case is exactly the accuracy-maximising "Best Fixed
-Utility" operating point plotted in the family-specific
-``nature_medicine_paper/figures/fig3_roc_grid_*.png`` panels.
-
-Cost-ratio convention
----------------------
-A cost ratio is always **FN/FP** (false-negative cost divided by false-positive
-cost), matching the rest of this repository. On the command line you may pass:
-
-  * a plain number, e.g. ``--cost-ratio 1``   -> FN/FP = 1   (accuracy)
-  * a ratio ``FN:FP``, e.g. ``--cost-ratio 10:1`` -> FN/FP = 10 (safety-leaning)
-  * ``--cost-ratio 1:5``                       -> FN/FP = 0.2 (resource-leaning)
-
-Usage
------
-    python generic_roc.py --input example_dataset.csv --cost-ratio 1
-    python generic_roc.py --input mydata.csv \
-        --belief-col p --label-col y --decision-col action --cost-ratio 5:1 \
-        --output-dir out
-
-Input CSV schema (column names are configurable via CLI flags)
---------------------------------------------------------------
-    belief   : float in [0, 1]   — P(positive/needs action | context)   [required]
-    label    : binary            — ground-truth outcome (1 = positive)   [required]
-    decision : binary            — observed action taken (1 = act)       [optional]
-"""
 from __future__ import annotations
 
 import argparse
 import csv
 import json
-import sys
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Optional
 
 import numpy as np
+from scipy.optimize import minimize
 
 
-# ---------------------------------------------------------------------------
-# Parsing helpers
-# ---------------------------------------------------------------------------
-
-_TRUE_TOKENS = {"1", "1.0", "yes", "y", "true", "t", "positive", "pos", "admit"}
-_FALSE_TOKENS = {"0", "0.0", "no", "n", "false", "f", "negative", "neg", "discharge"}
+TRUE_TOKENS = {"1", "1.0", "yes", "y", "true", "t", "positive", "pos", "admit"}
+FALSE_TOKENS = {"0", "0.0", "no", "n", "false", "f", "negative", "neg", "discharge"}
 
 
-def parse_cost_ratio(text: str | float) -> float:
-    """Parse a target cost ratio into a single FN/FP float.
-
-    Accepts a plain number (interpreted directly as FN/FP) or an ``FN:FP``
-    string such as ``"10:1"`` or ``"1:5"``.
-    """
-    s = str(text).strip()
-    if ":" in s:
-        left, right = s.split(":", 1)
+def parse_cost_ratio(value: str) -> float:
+    text = str(value).strip()
+    if ":" in text:
+        left, right = text.split(":", 1)
         fn = float(left)
         fp = float(right)
-        if fp <= 0 or fn < 0:
-            raise ValueError(f"invalid cost ratio {text!r}: costs must be positive")
+        if fn <= 0 or fp <= 0:
+            raise ValueError("Cost ratios must be positive")
         return fn / fp
-    val = float(s)
-    if val <= 0:
-        raise ValueError(f"invalid cost ratio {text!r}: must be > 0")
-    return val
+    ratio = float(text)
+    if ratio <= 0:
+        raise ValueError("Cost ratio must be positive")
+    return ratio
 
 
-def _to_binary(raw: Optional[str], *, field_name: str) -> Optional[int]:
-    """Coerce a cell to 0/1. Returns None for empty cells."""
+def _to_binary(raw: str | None, field_name: str) -> int | None:
     if raw is None:
         return None
     token = str(raw).strip().lower()
     if token == "":
         return None
-    if token in _TRUE_TOKENS:
+    if token in TRUE_TOKENS:
         return 1
-    if token in _FALSE_TOKENS:
+    if token in FALSE_TOKENS:
         return 0
-    # Fall back to numeric coercion (e.g. "1", "0", "1.0").
-    try:
-        num = float(token)
-    except ValueError as exc:  # noqa: TRY003
-        raise ValueError(
-            f"cannot interpret {raw!r} in column {field_name!r} as binary 0/1"
-        ) from exc
-    if num == 1:
+    number = float(token)
+    if number == 1:
         return 1
-    if num == 0:
+    if number == 0:
         return 0
-    raise ValueError(
-        f"value {raw!r} in column {field_name!r} is not binary (expected 0 or 1)"
-    )
+    raise ValueError(f"{field_name}={raw!r} is not binary")
 
-
-# ---------------------------------------------------------------------------
-# Dataset loading
-# ---------------------------------------------------------------------------
 
 @dataclass
 class Dataset:
-    beliefs: np.ndarray                      # float, in [0, 1]
-    labels: np.ndarray                       # int, {0, 1}
-    decisions: Optional[np.ndarray] = None   # int, {0, 1} or None
-    n_rows_read: int = 0
-    n_rows_used: int = 0
+    beliefs: np.ndarray
+    labels: np.ndarray
+    decisions: np.ndarray | None
+    n_rows_read: int
+    n_rows_used: int
 
 
-def load_dataset(
-    path: Path,
-    *,
-    belief_col: str = "belief",
-    label_col: str = "label",
-    decision_col: Optional[str] = None,
-) -> Dataset:
-    """Load a labeled beliefs/decisions dataset from a CSV file.
-
-    Rows with a missing belief or label are skipped. If ``decision_col`` is
-    given, rows missing the decision are still kept (decision recorded as NaN)
-    but such rows are dropped from the revealed-preference fit.
-    """
-    path = Path(path)
-    with open(path, encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+def load_dataset(path: Path, belief_col: str, label_col: str, decision_col: str | None) -> Dataset:
+    with open(path, encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
         if reader.fieldnames is None:
-            raise ValueError(f"{path} appears to be empty")
-        missing = [c for c in (belief_col, label_col) if c not in reader.fieldnames]
-        if decision_col and decision_col not in reader.fieldnames:
-            missing.append(decision_col)
+            raise ValueError(f"{path} is empty")
+        required = [belief_col, label_col] + ([decision_col] if decision_col else [])
+        missing = [name for name in required if name and name not in reader.fieldnames]
         if missing:
-            raise ValueError(
-                f"{path} is missing required column(s): {', '.join(missing)}. "
-                f"Available columns: {', '.join(reader.fieldnames)}"
-            )
-
+            raise ValueError(f"Missing required columns: {', '.join(missing)}")
         beliefs: list[float] = []
         labels: list[int] = []
         decisions: list[float] = []
-        n_read = 0
+        n_rows_read = 0
         for row in reader:
-            n_read += 1
-            b_raw = (row.get(belief_col) or "").strip()
-            y = _to_binary(row.get(label_col), field_name=label_col)
-            if b_raw == "" or y is None:
+            n_rows_read += 1
+            raw_belief = (row.get(belief_col) or "").strip()
+            raw_label = row.get(label_col)
+            if raw_belief == "":
                 continue
-            belief = float(b_raw)
-            if not (0.0 <= belief <= 1.0):
-                raise ValueError(
-                    f"belief {belief!r} in column {belief_col!r} is outside [0, 1]"
-                )
+            label = _to_binary(raw_label, label_col)
+            if label is None:
+                continue
+            belief = float(raw_belief)
+            if not 0.0 <= belief <= 1.0:
+                raise ValueError(f"{belief_col} must be between 0 and 1")
             beliefs.append(belief)
-            labels.append(y)
+            labels.append(label)
             if decision_col:
-                d = _to_binary(row.get(decision_col), field_name=decision_col)
-                decisions.append(float("nan") if d is None else float(d))
-
-    ds = Dataset(
+                decision = _to_binary(row.get(decision_col), decision_col)
+                decisions.append(float("nan") if decision is None else float(decision))
+    if not beliefs:
+        raise ValueError("No usable rows found")
+    return Dataset(
         beliefs=np.asarray(beliefs, dtype=float),
         labels=np.asarray(labels, dtype=int),
-        decisions=(np.asarray(decisions, dtype=float) if decision_col else None),
-        n_rows_read=n_read,
+        decisions=np.asarray(decisions, dtype=float) if decision_col else None,
+        n_rows_read=n_rows_read,
         n_rows_used=len(beliefs),
     )
-    if ds.n_rows_used == 0:
-        raise ValueError(f"{path} has no usable rows (belief + label required)")
-    return ds
-
-
-# ---------------------------------------------------------------------------
-# ROC curve
-# ---------------------------------------------------------------------------
-
-def _trapezoid(y, x) -> float:
-    fn = getattr(np, "trapezoid", getattr(np, "trapz", None))
-    return float(fn(y, x))
 
 
 def roc_curve(scores, labels):
-    """ROC (fpr, tpr, thresholds) and AUROC from scores vs binary labels.
+    scores = np.asarray(scores, dtype=float)
+    labels = np.asarray(labels, dtype=int)
+    positives = int((labels == 1).sum())
+    negatives = int((labels == 0).sum())
+    if positives == 0 or negatives == 0:
+        return np.array([0.0, 1.0]), np.array([0.0, 1.0]), float("nan")
+    order = np.argsort(-scores, kind="mergesort")
+    sorted_scores = scores[order]
+    labels = labels[order]
+    threshold_indices = np.r_[np.flatnonzero(np.diff(sorted_scores)), len(labels) - 1]
+    tp = np.cumsum(labels == 1)[threshold_indices]
+    fp = np.cumsum(labels == 0)[threshold_indices]
+    tpr = np.concatenate([[0.0], tp / positives])
+    fpr = np.concatenate([[0.0], fp / negatives])
+    area_fn = getattr(np, "trapezoid", getattr(np, "trapz", None))
+    return fpr, tpr, float(area_fn(tpr, fpr))
 
-    Sweeps the decision threshold from high to low so the curve runs from
-    (0, 0) to (1, 1); AUROC is the trapezoidal area. No sklearn dependency.
-    """
-    s = np.asarray(scores, dtype=float)
-    y = np.asarray(labels, dtype=int)
-    P = int((y == 1).sum())
-    N = int((y == 0).sum())
-    if P == 0 or N == 0:
-        return (np.array([0.0, 1.0]), np.array([0.0, 1.0]),
-                np.array([np.inf, -np.inf]), float("nan"))
-    order = np.argsort(-s, kind="mergesort")
-    y_sorted = y[order]
-    s_sorted = s[order]
-    tp = np.cumsum(y_sorted == 1)
-    fp = np.cumsum(y_sorted == 0)
-    tpr = np.concatenate([[0.0], tp / P])
-    fpr = np.concatenate([[0.0], fp / N])
-    thr = np.concatenate([[np.inf], s_sorted])
-    auc = _trapezoid(tpr, fpr)
-    return fpr, tpr, thr, auc
-
-
-# ---------------------------------------------------------------------------
-# Revealed-preference cost-function fit (back out the implied FN/FP ratio)
-# ---------------------------------------------------------------------------
 
 def fit_cost_function(beliefs, decisions) -> dict:
-    """Fit a binary logit cost function to (belief, decision) pairs.
-
-    Model (Yamin et al., action set {act, not-act}, beta = 1):
-
-        EL(act     | p) = c_FP * (1 - p)
-        EL(not-act | p) = c_FN * p
-        Pr(act | p)     = sigmoid( c_FN * p - c_FP * (1 - p) )
-
-    Systematic costs c = (c_FP, c_FN) are estimated by maximum likelihood
-    (scipy L-BFGS-B). The interpretable quantity is the ratio c_FN / c_FP.
-    """
-    from scipy.optimize import minimize
-
-    p = np.asarray(beliefs, dtype=float)
-    a = np.asarray(decisions, dtype=float)
-    mask = ~np.isnan(p) & ~np.isnan(a)
-    p, a = p[mask], a[mask]
-    n = int(len(a))
+    beliefs = np.asarray(beliefs, dtype=float)
+    decisions = np.asarray(decisions, dtype=float)
+    mask = np.isfinite(beliefs) & np.isfinite(decisions)
+    beliefs = beliefs[mask]
+    decisions = decisions[mask]
+    n = int(len(decisions))
     if n == 0:
-        return {"n": 0, "c_fp": None, "c_fn": None, "ratio_fn_fp": None,
-                "loglik": None, "frac_act": None, "degenerate": True}
-
-    frac_act = float(a.mean())
+        return {"n": 0, "c_fp": None, "c_fn": None, "ratio_fn_fp": None, "loglik": None, "frac_act": None, "degenerate": True}
+    frac_act = float(decisions.mean())
     if frac_act in (0.0, 1.0):
-        # An all-act or all-not-act vector cannot identify finite costs.
-        return {"n": n, "c_fp": None, "c_fn": None, "ratio_fn_fp": None,
-                "loglik": None, "frac_act": frac_act, "degenerate": True}
+        return {"n": n, "c_fp": None, "c_fn": None, "ratio_fn_fp": None, "loglik": None, "frac_act": frac_act, "degenerate": True}
 
-    def neg_loglik(c: np.ndarray) -> float:
-        c_fp, c_fn = c
-        z = c_fn * p - c_fp * (1.0 - p)
+    def neg_loglik(params: np.ndarray) -> float:
+        c_fp, c_fn = params
+        z = c_fn * beliefs - c_fp * (1.0 - beliefs)
         log_p_act = -np.logaddexp(0.0, -z)
         log_p_noact = -np.logaddexp(0.0, z)
-        ll = a * log_p_act + (1.0 - a) * log_p_noact
-        return -float(ll.sum())
+        return -float((decisions * log_p_act + (1.0 - decisions) * log_p_noact).sum())
 
-    res = minimize(
-        neg_loglik, x0=np.array([1.0, 1.0]), method="L-BFGS-B",
+    result = minimize(
+        neg_loglik,
+        x0=np.array([1.0, 1.0]),
+        method="L-BFGS-B",
         bounds=[(1e-6, None), (1e-6, None)],
     )
-    c_fp, c_fn = float(res.x[0]), float(res.x[1])
+    c_fp, c_fn = float(result.x[0]), float(result.x[1])
     return {
         "n": n,
         "c_fp": c_fp,
         "c_fn": c_fn,
-        "ratio_fn_fp": (c_fn / c_fp) if c_fp > 0 else None,
-        "loglik": -float(res.fun),
+        "ratio_fn_fp": c_fn / c_fp if c_fp > 0 else None,
+        "loglik": -float(result.fun),
         "frac_act": frac_act,
         "degenerate": False,
     }
 
 
-def back_out_ratio(ds: Dataset) -> dict:
-    """Back out the FN/FP ratio implied by a dataset.
+def operating_point(decisions, labels):
+    decisions = np.asarray(decisions, dtype=float)
+    labels = np.asarray(labels, dtype=int)
+    mask = np.isfinite(decisions)
+    decisions = decisions[mask].astype(int)
+    labels = labels[mask]
+    positives = max(int((labels == 1).sum()), 1)
+    negatives = max(int((labels == 0).sum()), 1)
+    return {
+        "tpr": float(((decisions == 1) & (labels == 1)).sum() / positives),
+        "fpr": float(((decisions == 1) & (labels == 0)).sum() / negatives),
+        "accuracy": float((decisions == labels).mean()) if len(labels) else float("nan"),
+    }
 
-    Uses the observed decisions if present, otherwise the ground-truth labels.
-    The returned ``source`` field records which was used.
-    """
-    if ds.decisions is not None and np.isfinite(ds.decisions).any():
-        fit = fit_cost_function(ds.beliefs, ds.decisions)
-        fit["source"] = "decisions"
-    else:
-        fit = fit_cost_function(ds.beliefs, ds.labels.astype(float))
-        fit["source"] = "labels"
-    return fit
-
-
-# ---------------------------------------------------------------------------
-# Best fixed utility for a target cost ratio
-# ---------------------------------------------------------------------------
 
 @dataclass
 class BestFixedUtility:
-    cost_ratio_fn_fp: float       # target FN/FP the operating point is chosen for
-    threshold: float              # belief threshold (act iff belief >= threshold)
-    utility_ratio_fn_fp: float    # FN/FP to prompt the LLM with -> reproduces threshold
+    cost_ratio_fn_fp: float
+    threshold: float
+    utility_ratio_fn_fp: float
     tpr: float
     fpr: float
     accuracy: float
-    total_cost: float             # target-weighted cost at this threshold (c_FP = 1)
+    total_cost: float
     tp: int
     fp: int
     tn: int
     fn: int
 
 
-def best_fixed_utility(beliefs, labels, cost_ratio: float = 1.0) -> BestFixedUtility:
-    """Find the belief threshold minimising the target-weighted expected cost.
-
-    For a target cost ratio r = c_FN / c_FP (with c_FP fixed to 1), the cost at
-    threshold ``thr`` (rule: act iff belief >= thr) is ``FP(thr) + r * FN(thr)``.
-    The threshold that minimises this is the best operating point reachable on
-    the belief ROC for that priority.
-
-    The **utility ratio** returned is ``(1 - thr) / thr`` — the FN/FP cost ratio
-    that, given to an LLM as a cost function, implies the Bayes-optimal referral
-    threshold ``p* = c_FP / (c_FP + c_FN) = thr``. This is what you prompt with
-    on unseen data. It equals ``cost_ratio`` only when the beliefs are
-    well-calibrated at the relevant operating point.
-
-    With ``cost_ratio = 1`` this reduces to the accuracy-maximising threshold —
-    the "Best Fixed Utility" point in the family-specific ROC grids.
-    """
-    p = np.asarray(beliefs, dtype=float)
-    y = np.asarray(labels, dtype=int)
-    n = int(len(y))
-    r = float(cost_ratio)
-    P = max(int((y == 1).sum()), 1)
-    N = max(int((y == 0).sum()), 1)
-
-    candidates = np.unique(np.concatenate([[0.0], p, [1.0 + 1e-9]]))
-    best: Optional[BestFixedUtility] = None
-    best_cost = np.inf
-    for thr in candidates:
-        pred = (p >= thr).astype(int)
-        fp = int(((pred == 1) & (y == 0)).sum())
-        fn = int(((pred == 0) & (y == 1)).sum())
-        cost = fp + r * fn  # c_FP = 1, c_FN = r
-        # Strict improvement keeps the smallest threshold among ties, matching
-        # analyze_sweep.best_fixed_threshold.
-        if cost < best_cost - 1e-12:
-            best_cost = cost
-            tp = int(((pred == 1) & (y == 1)).sum())
-            tn = int(((pred == 0) & (y == 0)).sum())
-            util = (1.0 - thr) / thr if thr > 0 else float("inf")
+def best_fixed_utility(beliefs, labels, cost_ratio: float) -> BestFixedUtility:
+    beliefs = np.asarray(beliefs, dtype=float)
+    labels = np.asarray(labels, dtype=int)
+    candidates = np.unique(np.concatenate([[0.0], beliefs, [1.0 + 1e-9]]))
+    positives = max(int((labels == 1).sum()), 1)
+    negatives = max(int((labels == 0).sum()), 1)
+    best_cost = float("inf")
+    best: BestFixedUtility | None = None
+    for threshold in candidates:
+        pred = (beliefs >= threshold).astype(int)
+        tp = int(((pred == 1) & (labels == 1)).sum())
+        fp = int(((pred == 1) & (labels == 0)).sum())
+        tn = int(((pred == 0) & (labels == 0)).sum())
+        fn = int(((pred == 0) & (labels == 1)).sum())
+        total_cost = fp + cost_ratio * fn
+        if total_cost < best_cost - 1e-12:
+            best_cost = total_cost
             best = BestFixedUtility(
-                cost_ratio_fn_fp=r,
-                threshold=float(thr),
-                utility_ratio_fn_fp=float(util),
-                tpr=float(tp / P),
-                fpr=float(fp / N),
-                accuracy=float((tp + tn) / n),
-                total_cost=float(cost),
-                tp=tp, fp=fp, tn=tn, fn=fn,
+                cost_ratio_fn_fp=float(cost_ratio),
+                threshold=float(threshold),
+                utility_ratio_fn_fp=(
+                    0.0
+                    if threshold > 1.0
+                    else float((1.0 - threshold) / threshold)
+                    if threshold > 0
+                    else float("inf")
+                ),
+                tpr=float(tp / positives),
+                fpr=float(fp / negatives),
+                accuracy=float((tp + tn) / len(labels)),
+                total_cost=float(total_cost),
+                tp=tp,
+                fp=fp,
+                tn=tn,
+                fn=fn,
             )
     assert best is not None
     return best
 
 
-def operating_point(decisions, labels):
-    """(fpr, tpr, accuracy) of a set of observed binary decisions vs labels."""
-    d = np.asarray(decisions, dtype=float)
-    y = np.asarray(labels, dtype=int)
-    mask = ~np.isnan(d)
-    d = d[mask].astype(int)
-    y = y[mask]
-    if len(y) == 0:
-        return float("nan"), float("nan"), float("nan")
-    P = max(int((y == 1).sum()), 1)
-    N = max(int((y == 0).sum()), 1)
-    tpr = float(((d == 1) & (y == 1)).sum() / P)
-    fpr = float(((d == 1) & (y == 0)).sum() / N)
-    acc = float((d == y).mean())
-    return fpr, tpr, acc
-
-
-# ---------------------------------------------------------------------------
-# Plot
-# ---------------------------------------------------------------------------
-
-def plot_roc(ds: Dataset, bfu: BestFixedUtility, auc: float, out_path: Path,
-             *, implied: Optional[dict] = None, title: str = "Belief ROC") -> bool:
-    """Draw the belief ROC with the best-fixed-utility operating point.
-
-    Returns True if the figure was written, False if matplotlib is unavailable.
-    """
-    try:
-        import matplotlib
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as plt
-    except Exception as exc:  # noqa: BLE001
-        print(f"(skipping plot: {exc})", file=sys.stderr)
-        return False
-
-    fpr, tpr, _thr, _auc = roc_curve(ds.beliefs, ds.labels)
-    fig, ax = plt.subplots(figsize=(6.6, 6.2))
-    ax.plot(fpr, tpr, "-", color="0.45", lw=2.6, zorder=2,
-            label=f"Belief ROC (AUC={auc:.2f})")
-    ax.plot([0, 1], [0, 1], "k:", alpha=0.5, zorder=1, label="Chance")
-
-    # Observed decisions' operating point (if provided).
-    if ds.decisions is not None and np.isfinite(ds.decisions).any():
-        dfpr, dtpr, _ = operating_point(ds.decisions, ds.labels)
-        if not np.isnan(dfpr):
-            lbl = "Observed decisions"
-            if implied and implied.get("ratio_fn_fp"):
-                lbl += f" (implied FN/FP={implied['ratio_fn_fp']:.2f})"
-            ax.plot(dfpr, dtpr, "o", markersize=13, color="#3182bd",
-                    markeredgecolor="k", markeredgewidth=0.8, zorder=5, label=lbl)
-
-    # Best fixed utility operating point for the target cost ratio.
-    ax.plot(bfu.fpr, bfu.tpr, "s", color="gold", markersize=18,
-            markeredgecolor="k", markeredgewidth=1.0, zorder=6,
-            label=(f"Best Fixed Utility @ FN/FP={_fmt_ratio(bfu.cost_ratio_fn_fp)}\n"
-                   f"(prompt FN/FP={_fmt_ratio(bfu.utility_ratio_fn_fp)}, "
-                   f"thr={bfu.threshold:.2f})"))
-
-    ax.set_xlim(-0.02, 1.02)
-    ax.set_ylim(-0.02, 1.02)
-    ax.set_xlabel("False Positive Rate", fontsize=13)
-    ax.set_ylabel("True Positive Rate", fontsize=13)
-    ax.set_title(title, fontsize=14, fontweight="bold")
-    ax.tick_params(axis="both", labelsize=11)
-    ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=10, loc="lower right", framealpha=0.93)
-    fig.tight_layout()
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_path, dpi=160, bbox_inches="tight")
-    plt.close(fig)
-    return True
-
-
-# ---------------------------------------------------------------------------
-# Orchestration + reporting
-# ---------------------------------------------------------------------------
-
-def _fmt_ratio(r: float) -> str:
-    """Human-readable FN:FP ratio string, e.g. 0.2 -> '1:5', 10 -> '10:1'."""
-    if r is None or not np.isfinite(r):
+def _ratio_text(value: float | None) -> str:
+    if value is None or not np.isfinite(value):
         return "inf"
-    if r >= 1:
-        return f"{r:.3g}:1"
-    return f"1:{(1.0 / r):.3g}"
+    if value == 0:
+        return "0:1"
+    if value >= 1:
+        return f"{value:.3g}:1"
+    return f"1:{(1.0 / value):.3g}"
 
 
-def analyze(ds: Dataset, cost_ratio: float) -> dict:
-    """Run the full analysis and return a JSON-serialisable results dict."""
-    _fpr, _tpr, _thr, auc = roc_curve(ds.beliefs, ds.labels)
-    implied = back_out_ratio(ds)
-    bfu = best_fixed_utility(ds.beliefs, ds.labels, cost_ratio)
+def _json_ready(value):
+    if isinstance(value, dict):
+        return {str(key): _json_ready(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [_json_ready(item) for item in value]
+    if isinstance(value, tuple):
+        return [_json_ready(item) for item in value]
+    if isinstance(value, np.floating):
+        value = float(value)
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, float) and not np.isfinite(value):
+        return None
+    return value
+
+
+def analyze(dataset: Dataset, cost_ratio: float) -> dict:
+    fpr, tpr, auc = roc_curve(dataset.beliefs, dataset.labels)
+    if dataset.decisions is not None and np.isfinite(dataset.decisions).any():
+        implied = fit_cost_function(dataset.beliefs, dataset.decisions)
+        implied["source"] = "decisions"
+    else:
+        implied = fit_cost_function(dataset.beliefs, dataset.labels.astype(float))
+        implied["source"] = "labels"
+    best = best_fixed_utility(dataset.beliefs, dataset.labels, cost_ratio)
     return {
-        "n_rows_read": ds.n_rows_read,
-        "n_rows_used": ds.n_rows_used,
-        "n_positive": int((ds.labels == 1).sum()),
-        "n_negative": int((ds.labels == 0).sum()),
+        "n_rows_read": dataset.n_rows_read,
+        "n_rows_used": dataset.n_rows_used,
+        "n_positive": int((dataset.labels == 1).sum()),
+        "n_negative": int((dataset.labels == 0).sum()),
         "auroc": auc,
         "implied_ratio": implied,
         "target_cost_ratio_fn_fp": cost_ratio,
-        "best_fixed_utility": asdict(bfu),
+        "best_fixed_utility": asdict(best),
     }
 
 
+def plot_roc(dataset: Dataset, results: dict, output_path: Path, title: str) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    fpr, tpr, auc = roc_curve(dataset.beliefs, dataset.labels)
+    fig, ax = plt.subplots(figsize=(6.6, 6.2))
+    ax.plot(fpr, tpr, color="0.45", lw=2.6, label=f"Belief ROC (AUROC={auc:.2f})")
+    ax.plot([0, 1], [0, 1], "k:", alpha=0.5, label="Chance")
+    if dataset.decisions is not None and np.isfinite(dataset.decisions).any():
+        point = operating_point(dataset.decisions, dataset.labels)
+        label = "Observed decisions"
+        ratio = results["implied_ratio"].get("ratio_fn_fp")
+        if ratio is not None:
+            label += f" (implied FN/FP={ratio:.2f})"
+        ax.plot(point["fpr"], point["tpr"], "o", color="#3182BD", markeredgecolor="black", markeredgewidth=0.8, markersize=12, label=label)
+    best = results["best_fixed_utility"]
+    ax.plot(
+        best["fpr"],
+        best["tpr"],
+        "s",
+        color="gold",
+        markeredgecolor="black",
+        markeredgewidth=1.0,
+        markersize=16,
+        label=f"Best Fixed Utility (prompt FN/FP={_ratio_text(best['utility_ratio_fn_fp'])}, thr={best['threshold']:.2f})",
+    )
+    ax.set_xlim(-0.02, 1.02)
+    ax.set_ylim(-0.02, 1.02)
+    ax.set_xlabel("False Positive Rate")
+    ax.set_ylabel("True Positive Rate")
+    ax.set_title(title, fontweight="bold")
+    ax.grid(True, alpha=0.3)
+    ax.legend(fontsize=9.5, loc="lower right", framealpha=0.93)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=160, bbox_inches="tight")
+    plt.close(fig)
+
+
 def print_report(results: dict) -> None:
-    r = results
-    imp = r["implied_ratio"]
-    bfu = r["best_fixed_utility"]
-    print("=" * 70)
+    implied = results["implied_ratio"]
+    best = results["best_fixed_utility"]
+    print("=" * 68)
     print("Generic ROC / utility analysis")
-    print("=" * 70)
-    print(f"rows used            : {r['n_rows_used']} of {r['n_rows_read']} "
-          f"({r['n_positive']} positive, {r['n_negative']} negative)")
-    print(f"AUROC (belief rank)  : {r['auroc']:.3f}")
-    print("-" * 70)
-    print("Implied FN/FP ratio (backed out of the dataset)")
-    if imp.get("degenerate"):
-        print(f"  source={imp['source']}: degenerate (all-act or all-not-act); "
-              "cannot identify a finite ratio")
+    print("=" * 68)
+    print(f"rows used           : {results['n_rows_used']} of {results['n_rows_read']} ({results['n_positive']} positive, {results['n_negative']} negative)")
+    print(f"AUROC               : {results['auroc']:.3f}")
+    if implied.get("degenerate"):
+        print(f"implied FN/FP       : degenerate ({implied.get('source')})")
     else:
-        print(f"  source = {imp['source']}   (n={imp['n']})")
-        print(f"  c_FP={imp['c_fp']:.3f}  c_FN={imp['c_fn']:.3f}  "
-              f"FN/FP={imp['ratio_fn_fp']:.3f}  ({_fmt_ratio(imp['ratio_fn_fp'])})")
-    print("-" * 70)
-    print(f"Target cost ratio (evaluate by): FN/FP={r['target_cost_ratio_fn_fp']:.3g} "
-          f"({_fmt_ratio(r['target_cost_ratio_fn_fp'])})")
-    print("Best fixed utility for that target:")
-    print(f"  belief threshold      : {bfu['threshold']:.3f}  (act iff belief >= thr)")
-    print(f"  operating point       : TPR={bfu['tpr']:.3f}  FPR={bfu['fpr']:.3f}  "
-          f"accuracy={bfu['accuracy']:.3f}")
-    print(f"  best fixed UTILITY    : FN/FP={bfu['utility_ratio_fn_fp']:.3g} "
-          f"({_fmt_ratio(bfu['utility_ratio_fn_fp'])})")
-    print("  --> prompt the LLM with this FN/FP cost ratio on unseen data")
-    print("=" * 70)
+        print(
+            "implied FN/FP       : "
+            f"{implied['ratio_fn_fp']:.3f} ({_ratio_text(implied['ratio_fn_fp'])}) "
+            f"from {implied['source']}"
+        )
+    print(
+        f"target FN/FP        : {results['target_cost_ratio_fn_fp']:.3g} "
+        f"({_ratio_text(results['target_cost_ratio_fn_fp'])})"
+    )
+    print(
+        "best fixed utility  : "
+        f"thr={best['threshold']:.3f}, TPR={best['tpr']:.3f}, FPR={best['fpr']:.3f}, "
+        f"prompt FN/FP={_ratio_text(best['utility_ratio_fn_fp'])}"
+    )
+    print("=" * 68)
 
 
-def build_arg_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(
-        description=("Build a belief ROC, back out the implied FN/FP cost ratio, "
-                     "and find the best fixed utility for a target cost ratio."),
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Build a belief ROC, recover the implied FN/FP ratio, and find the best fixed utility.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    p.add_argument("--input", required=True, type=Path,
-                   help="Path to the labeled dataset CSV.")
-    p.add_argument("--belief-col", default="belief",
-                   help="Column with the elicited probability in [0, 1].")
-    p.add_argument("--label-col", default="label",
-                   help="Column with the ground-truth binary label.")
-    p.add_argument("--decision-col", default=None,
-                   help="Optional column with the observed binary decision. "
-                        "If omitted, the implied ratio is backed out of the labels.")
-    p.add_argument("--cost-ratio", default="1",
-                   help="Target cost ratio to evaluate by, as FN/FP. Accepts a "
-                        "number (e.g. 5) or an 'FN:FP' string (e.g. 10:1, 1:5).")
-    p.add_argument("--output-dir", default=None, type=Path,
-                   help="Where to write roc.png and summary.json "
-                        "(default: alongside the input file).")
-    p.add_argument("--no-plot", action="store_true",
-                   help="Skip writing the ROC figure.")
-    p.add_argument("--title", default="Belief ROC",
-                   help="Title for the ROC figure.")
-    return p
+    parser.add_argument("--input", required=True, type=Path)
+    parser.add_argument("--belief-col", default="belief")
+    parser.add_argument("--label-col", default="label")
+    parser.add_argument("--decision-col", default=None)
+    parser.add_argument("--cost-ratio", default="1")
+    parser.add_argument("--output-dir", default=None, type=Path)
+    parser.add_argument("--title", default="Belief ROC")
+    parser.add_argument("--no-plot", action="store_true")
+    return parser
 
 
-def main(argv: Optional[list[str]] = None) -> int:
-    args = build_arg_parser().parse_args(argv)
-    cost_ratio = parse_cost_ratio(args.cost_ratio)
-
-    ds = load_dataset(
-        args.input,
-        belief_col=args.belief_col,
-        label_col=args.label_col,
-        decision_col=args.decision_col,
-    )
-    results = analyze(ds, cost_ratio)
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
+    dataset = load_dataset(args.input, args.belief_col, args.label_col, args.decision_col)
+    results = analyze(dataset, parse_cost_ratio(args.cost_ratio))
     print_report(results)
-
-    out_dir = args.output_dir or args.input.parent
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    summary_path = out_dir / "summary.json"
-    summary_path.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    output_dir = args.output_dir or args.input.parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+    summary_path = output_dir / "summary.json"
+    summary_path.write_text(
+        json.dumps(_json_ready(results), indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
     print(f"wrote {summary_path}")
-
     if not args.no_plot:
-        bfu = BestFixedUtility(**results["best_fixed_utility"])
-        roc_path = out_dir / "roc.png"
-        if plot_roc(ds, bfu, results["auroc"], roc_path,
-                    implied=results["implied_ratio"], title=args.title):
-            print(f"wrote {roc_path}")
+        plot_path = output_dir / "roc.png"
+        plot_roc(dataset, results, plot_path, args.title)
+        print(f"wrote {plot_path}")
     return 0
 
 

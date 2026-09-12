@@ -20,43 +20,29 @@ along their ROC curve as intended.
 
 ```
 .
-├── revealed_preferences.py        # core engine: prompts, LLM calls, cost-function fitting
-├── run_analysis.py                # base infrastructure (vignette loading, call_llm) reused by the engine
-├── run_factorial_sweep.py         # elicit belief + baseline + utility-prompted decisions
-├── run_threshold_sweep.py         # elicit probability-threshold-prompted decisions
-├── run_extra_utilities.py         # append the extreme cost ratios (.01 and 100) to the sweeps
-├── run_deepseek_full.py           # full sweep for the DeepSeek V4 models (chat.completions API)
-├── analyze_sweep.py               # per-config analysis: recovered ratios, ROC/AUROC, consistency
-├── original_paper_comparison.py   # compare against the deployed tool's published operating point
-│
-├── make_paper_figures.py          # Figures 1–3 (deployed ROC, recovered-vs-prompted, ROC grid)
-├── make_full_utility_figures.py   # full seven-utility versions of the utility/threshold figures
-├── make_threshold_figure.py       # Figure 4 companions (default thresholds, belief distributions)
-├── make_decomposition_figure.py   # exploratory loss decomposition (not in the paper)
-│
-├── make_data_folder.py            # collect all figure data into data/ (one CSV per model)
-│
-├── vignettes.json                 # 39 clinician-authored clinical vignettes
-├── anchoring_statements.json      # per-case anchoring-bias statements (factorial design)
-├── access_barriers.json           # access-barrier statements (factorial design)
+├── run_analysis.py                # one-command offline analysis and figure rebuild
+├── analysis/                      # data loading, statistics, plots, and prompt figures
+├── analysis_summary.json          # generated machine-readable analysis results
+├── count_lines.py                 # verifies the public code stays below 5,000 lines
 │
 ├── generic_RoC/                   # portable ROC + utility tool for any labeled dataset
-│
-├── data/                          # ⇒ all data behind the figures, one CSV per model
-├── original_paper_data/           # extracted data from the original ChatGPT Health study
-├── revealed_preferences/          # raw sweep outputs (incl. failed attempts and run metadata)
-└── nature_medicine_paper/         # LaTeX manuscript, figures, and references
+├── data/                          # analysis-ready model data, comparison data, belief repetitions
+├── nature_medicine_paper/
+│   └── figures/                   # the exact figure files used in the manuscript (+ regenerated copies)
+├── supplemental_analysis/         # supplemental analyses, figures and tables
+└── tests/                         # focused statistical and command-line tests
 ```
 
 ## Data
 
 **[`data/`](data/README.md)** has everything the paper's figures consume, in one
-place: one CSV per model (click the model name in
-[`data/README.md`](data/README.md)) containing every elicited belief and decision
-for that model across all reasoning efforts and both experiments, plus the
-original study's published decisions that Figure 1 compares against. Failed API
-calls are excluded there; the raw append-only run logs remain in
-`revealed_preferences/`.
+place: one compressed CSV per model containing every successful parsed belief
+and decision needed for the analysis across all reasoning efforts and both
+experiments, plus the original study's published decisions used for the
+deployed-tool comparison, and the five independent repetitions of the belief
+prompt for every configuration (`data/belief_repetitions/`) that the confidence
+bands are computed from. Raw responses, failed API attempts, credentials, and
+collection logs are intentionally excluded.
 
 ## Generic ROC / utility tool
 
@@ -67,16 +53,24 @@ it builds the belief ROC curve, backs out the FN/FP cost ratio the data behaves
 *as if* it holds, lets you name a target cost ratio (FN:FP) to evaluate by, and
 finds the **best fixed utility ratio** — the operating point on the ROC that
 minimises the target-weighted cost, expressed as the FN/FP ratio you would
-prompt an LLM with on unseen data. The 1:1 case reproduces the "Best Fixed
-Utility" markers in the family-specific
-`nature_medicine_paper/figures/fig3_roc_grid_*.png` panels. It depends only on
-`numpy`, `scipy`, and `matplotlib` and runs fully offline; see
+prompt an LLM with on unseen data. It depends only on `numpy`, `scipy`, and
+`matplotlib` and runs fully offline; see
 [`generic_RoC/README.md`](generic_RoC/README.md) for the input schema and usage.
+
+Example:
+
+```bash
+cd generic_RoC
+python generic_roc.py --input example_dataset.csv \
+    --decision-col decision --cost-ratio 5:1
+```
+
+The command writes `roc.png` and `summary.json`.
 
 ## Method in brief
 
 For each clinical vignette (expanded over a race × gender × anchoring ×
-access-barrier factorial design) we issue, in separate queries:
+access-barrier factorial design), the study issued, in separate queries:
 
 1. a **belief** prompt — the model's probability that the patient needs emergency care;
 2. a **baseline decision** prompt — refer or not, with no stated priorities;
@@ -87,55 +81,82 @@ access-barrier factorial design) we issue, in separate queries:
 
 From matched (belief, decision) pairs we fit a discrete-choice (logistic) cost
 function and read off the recovered FN/FP ratio — the priority the model behaved
-*as if* it held. Beliefs are scored against the gold labels with a standard ROC
+*as if* it held. Beliefs are scored against the gold labels with a tie-aware ROC
 analysis, so any recovered ratio maps to an operating point on the belief ROC.
+When the local five-run belief collection is available, the displayed score for
+each context is its mean probability over the five prompt repetitions. Pointwise
+95% bands use a hierarchical nonparametric bootstrap: each draw resamples the
+five prompt runs and the 78 clinical `case_id` clusters, retaining all 16
+correlated factorial variants of every selected case.
 
 ## Reproducing the figures
 
 ```bash
-python -m venv .venv && .venv\Scripts\activate      # Windows
-pip install -r requirements.txt
+python -m venv .venv
 
-# Regenerate the paper figures from the existing sweep outputs
-python make_paper_figures.py        # also emits the full-utility versions
-python make_threshold_figure.py     # default-threshold + belief-distribution panels
+# Windows
+.venv\Scripts\activate
+
+# macOS or Linux
+source .venv/bin/activate
+
+pip install -r requirements.txt
+python run_analysis.py --single-run   # the 22 figures as they appear in the manuscript
+python run_analysis.py                # the same figures using the five-run mean belief, with bootstrap bands
 ```
 
-Figures are written to `nature_medicine_paper/figures/`. The canonical figures
-show the full set of seven prompted cost ratios (including the .01 and 100
-extremes); `make_paper_figures.py` finishes by calling `make_full_utility_figures`
-so those versions always win.
+The analysis runs entirely offline from the included data.
+`nature_medicine_paper/figures/` holds the exact figure files included in the
+manuscript; [`nature_medicine_paper/figures/README.md`](nature_medicine_paper/figures/README.md)
+maps each file to its figure number in the paper. `run_analysis.py` never
+overwrites them: `--single-run` (one belief elicitation per case, as in the
+manuscript) writes to `nature_medicine_paper/figures/regenerated/single_run/`
+and `analysis_summary_single_run.json`; the default run uses the five
+repetitions in `data/belief_repetitions/` and writes to
+`nature_medicine_paper/figures/regenerated/five_run/` and `analysis_summary.json`.
+The `regenerated/` folders are created by the command and are not tracked in
+the repository, so the only figure files committed are the manuscript's.
+Both summaries record the numerical results, sample coverage, bootstrap
+settings, every confidence interval, and the output manifest.
 
-## Re-running the elicitation sweeps
+## Analysis conventions
 
-The sweeps call models through an OpenAI-compatible endpoint (Azure AI Foundry).
-Set an API key via `--api-key` or the `AZURE_KEY` environment variable.
+- Primary endpoint: 576 intended cases, excluding `C/D` cases; positives are `D`
+- Expanded endpoint: all 1,248 intended cases; positives contain `D`
+- Utility ratios: `.01`, `.1`, `.2`, `1`, `5`, `10`, and `100`
+- Recovered utilities: discrete-choice logit fit
+- ROC confidence bands: 1,000 hierarchical bootstrap draws with seed `0`
+- Other confidence intervals: 500 bootstrap draws with seed `0`
+- Calibration: 10-bin expected calibration error
+- Missing or unparseable responses: a present repetition collection must have
+  all five parsed beliefs for every paper context; partial collections stop the
+  canonical figure build. If no repetition collection is present, the original
+  one-run analysis remains available for backward compatibility.
+- ROC operating points: restricted to cases with both a belief and decision
+
+## Supplemental analyses
+
+`supplemental_analysis/` contains supplemental analyses computed from the same
+elicitations with no new model queries:
+held-out validation of the recovered decision rule (fitted on half of the base
+scenarios, scored on the other half), invariance of the recovered ratio across
+the 16 factorial cells, stability under the five repeated belief elicitations,
+misses by scenario and presentation, referral rates by clinical state, and
+error rates by patient subgroup under every prompting regime. See
+[`supplemental_analysis/README.md`](supplemental_analysis/README.md) for the scripts, the
+figures and tables they produce, and the cached results.
+
+## Validation
 
 ```bash
-# GPT family: belief + baseline + utility-prompted decisions (factorial design)
-python run_factorial_sweep.py --configs gpt-5-mini:medium --parallel 100 \
-    --output-dir revealed_preferences/<run>_factorial
-
-# Concordant probability-threshold decisions
-python run_threshold_sweep.py --configs gpt-5-mini:medium --parallel 100 \
-    --output-dir revealed_preferences/<run>_threshold
-
-# DeepSeek V4 (uses chat.completions reasoning_effort: none / high / max)
-python run_deepseek_full.py --model DeepSeek-V4-Pro --parallel 100 --run-tag pro
+python -m unittest discover -s tests -p "test_*.py"
+python count_lines.py
 ```
 
-All sweep runners are **resumable**: re-running a config re-fires only the
-(context, regime) pairs that don't yet have a parsed result, so an interrupted
-run can be continued safely.
+The test suite covers endpoint definitions, utility recovery, tied-score AUROC,
+calibration, best-fixed-utility edge cases, strict JSON output, and the
+standalone `generic_RoC` command. `count_lines.py` counts all source and test
+code and fails if the repository reaches the 5,000-line publication limit.
 
-## Data
-
-- `vignettes.json`, `anchoring_statements.json`, `access_barriers.json` — the
-  clinician-authored synthetic vignettes and factorial-design modifiers.
-- `original_paper_data/` — data extracted from the original ChatGPT Health
-  emergency-triage evaluation, used for the deployed-tool comparison.
-- `revealed_preferences/` — the elicited beliefs/decisions (`results.csv`) and
-  recovered cost-function fits (`fit.json`) for each model × configuration.
-
-The study used clinician-authored synthetic vignettes and publicly reported model
-outputs; it involved no human subjects and no identifiable patient data.
+The study used clinician-authored synthetic vignettes and publicly reported
+model outputs; it involved no human subjects and no identifiable patient data.
