@@ -101,19 +101,22 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
-python run_analysis.py --single-run   # the 22 figures as they appear in the manuscript
-python run_analysis.py                # the same figures using the five-run mean belief, with bootstrap bands
+python run_analysis.py                # five-run mean belief with bootstrap bands: the manuscript's ROC figures
+python run_analysis.py --single-run   # one belief elicitation per case: every other manuscript figure
 ```
 
 The analysis runs entirely offline from the included data.
 `nature_medicine_paper/figures/` holds the exact figure files included in the
 manuscript; [`nature_medicine_paper/figures/README.md`](nature_medicine_paper/figures/README.md)
 maps each file to its figure number in the paper. `run_analysis.py` never
-overwrites them: `--single-run` (one belief elicitation per case, as in the
-manuscript) writes to `nature_medicine_paper/figures/regenerated/single_run/`
-and `analysis_summary_single_run.json`; the default run uses the five
-repetitions in `data/belief_repetitions/` and writes to
+overwrites them: `--single-run` (one belief elicitation per case, which is how
+every manuscript figure other than the ROC figures was produced) writes to
+`nature_medicine_paper/figures/regenerated/single_run/` and
+`analysis_summary_single_run.json`; the default run uses the five repetitions in
+`data/belief_repetitions/` and writes to
 `nature_medicine_paper/figures/regenerated/five_run/` and `analysis_summary.json`.
+The manuscript's ROC figures (Figures 1 and 2, Extended Data Figures 1 and 2)
+come from this five-run analysis.
 The `regenerated/` folders are created by the command and are not tracked in
 the repository, so the only figure files committed are the manuscript's.
 Both summaries record the numerical results, sample coverage, bootstrap

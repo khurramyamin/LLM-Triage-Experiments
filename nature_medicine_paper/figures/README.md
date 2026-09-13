@@ -1,9 +1,11 @@
 # Manuscript figures
 
 These are the exact image files that appear in the main manuscript, listed by
-figure number. `python run_analysis.py --single-run` regenerates every one of them into
-`regenerated/single_run/` under the same file names, and `python run_analysis.py` writes the
-five-run versions with bootstrap bands into `regenerated/five_run/`; those folders are created
+figure number. The eight ROC figures (Figures 1 and 2 and Extended Data Figures 1 and 2)
+are the five-run versions with bootstrap confidence bands; `python run_analysis.py`
+regenerates them into `regenerated/five_run/` under the same file names. Every other
+figure was produced from a single belief elicitation per case; `python run_analysis.py
+--single-run` regenerates those into `regenerated/single_run/`. Both folders are created
 on demand and are not tracked in the repository.
 
 | Manuscript figure | File | Content |
