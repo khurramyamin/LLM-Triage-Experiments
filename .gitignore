@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 tests/artifacts/
 nature_medicine_paper/figures/regenerated/
+
+# macOS
+.DS_Store

@@ -11,6 +11,11 @@ python supplemental_analysis/supplemental_addendum.py     # belief spread across
 python supplemental_analysis/supplemental_figures.py      # figures (PDF and PNG) from the cached results
 python supplemental_analysis/supplemental_figures2.py     # condensed variants of three figures used in the supplemental analyses
 python supplemental_analysis/supplemental_tables.py       # the subgroup table used in the supplemental analyses
+python supplemental_analysis/supplemental_subgroup_ci.py   # subgroup error-rate differences per configuration, with bootstrap intervals (subgroup_ci.json)
+python supplemental_analysis/supplemental_invariance_p.py  # p-values and a Benjamini-Hochberg correction for the invariance contrasts (invariance_p.json)
+python supplemental_analysis/supplemental_unseen_auc.py    # belief-to-decision AUC restricted to the held-out scenarios (unseen_auc.json)
+python supplemental_analysis/supplemental_figures3.py      # the invariance figure, coloured by significance
+python supplemental_analysis/supplemental_figures4.py      # the per-model subgroup figure
 ```
 
 `supplemental_analysis.py --from-cache` reuses `results_cache.pkl` (the per-configuration results, including every bootstrap interval) instead of recomputing; the figure and table scripts always read the cache.
