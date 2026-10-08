@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import csv
 import shutil
-import sys
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -10,20 +9,22 @@ from unittest.mock import patch
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT))
-try:
-    import run_belief_repetitions as collector
-finally:
-    sys.path.remove(str(ROOT))
 from analysis import constants as C
 from analysis import figures as figure_module
 from analysis.figures import build_main_roc
 from analysis.metrics import hierarchical_roc_ci, mean_repetition_scores, roc_curve
 from analysis.data_io import load_belief_repetitions, validate_repetition_collection
 
+# Columns of the published data/belief_repetitions/*/*/results.csv.gz files.
+RESULTS_FIELDS = (
+    "context_id", "case_number", "vignette_id", "prompt_type", "regime", "c_fp", "c_fn",
+    "p_star", "gold_standard", "classification", "needs_er_gold", "raw_response",
+    "parsed_probability", "parsed_decision", "variant_code", "race", "gender",
+    "has_anchor", "has_barrier", "their_triage",
+)
 
-class RepetitionPlanningTests(unittest.TestCase):
+
+class RepetitionLoadingTests(unittest.TestCase):
     def setUp(self) -> None:
         self.artifacts = Path(__file__).parent / "artifacts" / "belief_repetition_tests"
         shutil.rmtree(self.artifacts, ignore_errors=True)
@@ -35,7 +36,7 @@ class RepetitionPlanningTests(unittest.TestCase):
     def _write(self, path: Path, rows: list[dict[str, str]]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=collector.fs.FACTORIAL_FIELDS)
+            writer = csv.DictWriter(handle, fieldnames=RESULTS_FIELDS)
             writer.writeheader()
             writer.writerows(rows)
 
@@ -47,40 +48,6 @@ class RepetitionPlanningTests(unittest.TestCase):
             "parsed_probability": probability,
             "raw_response": raw,
         }
-
-    def test_seed_uses_last_success_and_preserves_resumed_success(self) -> None:
-        source = self.artifacts / "source.csv"
-        destination = self.artifacts / "destination.csv"
-        self._write(
-            source,
-            [
-                self._row("a", "0.1"),
-                self._row("a", "0.7"),
-                self._row("a", ""),
-                self._row("b", "0.2"),
-            ],
-        )
-        self._write(destination, [self._row("b", "0.9")])
-
-        collector.seed_repetition_one(source, destination)
-        seeded = collector.last_successful_beliefs(destination)
-
-        self.assertEqual(seeded["a"]["parsed_probability"], "0.7")
-        self.assertEqual(seeded["b"]["parsed_probability"], "0.9")
-        with destination.open(encoding="utf-8") as handle:
-            self.assertEqual(len(list(csv.DictReader(handle))), 2)
-
-    def test_missing_plan_retries_unparseable_contexts_only(self) -> None:
-        path = self.artifacts / "results.csv"
-        self._write(
-            path,
-            [self._row("a", "0.4"), self._row("b", ""), self._row("c", "invalid")],
-        )
-        items = [
-            collector.fs._Item({"context_id": context, "regime": "belief"})
-            for context in ("a", "b", "c")
-        ]
-        self.assertEqual(collector.missing_contexts(items, path), ["b", "c"])
 
     def test_analysis_loader_ignores_invalid_and_keeps_last_parseable(self) -> None:
         path = (
@@ -103,12 +70,6 @@ class RepetitionPlanningTests(unittest.TestCase):
         )
         self.assertEqual(repetitions["gpt-5-mini_re-high"][0], {"a": 0.2})
         self.assertEqual(rows[str(Path("repetition_1") / "gpt-5-mini_re-high" / "results.csv")], 4)
-
-    def test_invalid_results_schema_fails_closed(self) -> None:
-        path = self.artifacts / "invalid.csv"
-        path.write_text("wrong,columns\n1,2\n", encoding="utf-8")
-        with self.assertRaisesRegex(ValueError, "Invalid results schema"):
-            collector.last_successful_beliefs(path)
 
     def test_partial_collection_is_rejected_for_canonical_analysis(self) -> None:
         study = SimpleNamespace(
