@@ -27,6 +27,7 @@ along their ROC curve as intended.
 │
 ├── generic_RoC/                   # portable ROC + utility tool for any labeled dataset
 ├── data/                          # analysis-ready model data, comparison data, belief repetitions
+├── prompts/                       # the exact text of every prompt sent to the models
 ├── nature_medicine_paper/
 │   └── figures/                   # the exact figure files used in the manuscript (+ regenerated copies)
 ├── supplemental_analysis/         # supplemental analyses, figures and tables
@@ -43,6 +44,10 @@ deployed-tool comparison, and the five independent repetitions of the belief
 prompt for every configuration (`data/belief_repetitions/`) that the confidence
 bands are computed from. Raw responses, failed API attempts, credentials, and
 collection logs are intentionally excluded.
+
+**[`prompts/`](prompts/README.md)** has the exact text of all 19,968 prompts
+sent to the models (1,248 clinical contexts x 16 prompt types), with the
+templates they were built from and the source of the clinical vignettes.
 
 ## Generic ROC / utility tool
 
@@ -78,6 +83,8 @@ access-barrier factorial design), the study issued, in separate queries:
    (FN\:FP ∈ {.01, .1, .2, 1, 5, 10, 100}); and
 4. **threshold-prompted decisions** — the concordant probability threshold
    `p* = c_FP / (c_FP + c_FN)` implied by each of those cost ratios.
+
+The exact prompts are in [`prompts/`](prompts/README.md).
 
 From matched (belief, decision) pairs we fit a discrete-choice (logistic) cost
 function and read off the recovered FN/FP ratio — the priority the model behaved

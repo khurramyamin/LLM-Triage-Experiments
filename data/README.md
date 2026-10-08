@@ -2,8 +2,9 @@
 
 The seven compressed files in `models/` contain the successful parsed model
 responses needed by the paper analysis. They include all reasoning levels and
-both utility- and threshold-prompting experiments. Raw responses, prompts,
-retry logs, API configuration, and credentials are intentionally excluded.
+both utility- and threshold-prompting experiments. Raw responses, retry logs,
+API configuration, and credentials are excluded. The exact prompts are in
+[`../prompts/`](../prompts/README.md).
 
 Model columns:
 
